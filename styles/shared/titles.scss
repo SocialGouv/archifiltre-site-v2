@@ -1,0 +1,7 @@
+%title-12 {
+  font-size: 12rem;
+
+  @include media('<phone') {
+    font-size: 7rem;
+  }
+}
