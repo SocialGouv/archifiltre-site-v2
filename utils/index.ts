@@ -19,3 +19,12 @@ export const qsa = (className: string) => document.querySelectorAll(className);
     Short of gsap toArray utils method to get a proper DOM elements array.
  */
 export const gqsa = (className: string) => gsap.utils.toArray(className);
+
+/**
+ * 
+   Check if item index is active
+ */
+export const isIndexActive = (
+    activeIndex: number,
+    itemIndex: number,
+): boolean => activeIndex === itemIndex;

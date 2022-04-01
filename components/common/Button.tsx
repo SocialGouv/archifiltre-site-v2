@@ -5,6 +5,9 @@ interface ButtonLinkProps {
     url: string;
     className?: string;
 }
+interface ButtonCircleProps {
+    onClick?: () => void;
+}
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
     label,
@@ -19,3 +22,12 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
         </Link>
     );
 };
+
+export const ButtonCircle: React.FC<ButtonCircleProps> = ({
+    onClick,
+    children,
+}) => (
+    <button className="btn-circle" onClick={onClick}>
+        {children}
+    </button>
+);
