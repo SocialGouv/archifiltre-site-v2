@@ -18,7 +18,7 @@
     background-color: var(--text);
     bottom: -2px;
     content: '';
-    height: 2px;
+    height: 0.1px;
     left: 0;
     position: absolute;
     right: 0;
@@ -34,89 +34,11 @@
   }
 }
 
-.contact__us {
-  margin: 0 10rem 15rem;
+.picto {
+  display: inline-block;
 
-  &__title {
-    @extend %description-50-m;
-
-    margin: 0 0 5rem;
-  }
-
-  &__link {
-    @extend %description-25-s;
-
-    align-items: center;
-    display: flex;
-
-    &:hover {
-      svg {
-        transform: translate3d(10px, 0, 0) rotate(180deg);
-      }
-    }
-
-    svg {
-      margin-right: 2rem;
-      transform: translate3d(0, 0, 0) rotate(180deg);
-      transition: transform 1s ease;
-    }
-  }
-}
-
-#intro {
-  cursor: pointer;
-  font-size: 20rem;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 3;
-
-  .intro {
-    &__sail {
-      background: #fff;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    &__background {
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: -1;
-    }
-
-    &__logo {
-      background: #fff;
-      font-weight: 900;
-      height: 100vh;
-      mix-blend-mode: screen;
-      width: 100vw;
-
-      &__inner {
-        left: 50%;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -65%);
-      }
-
-      &__top {
-        font-size: 60rem;
-      }
-
-      &__bottom {
-        bottom: -8.7rem;
-        font-size: 10rem;
-        left: 54.5rem;
-        position: absolute;
-      }
-    }
+  img {
+    height: 100%;
+    width: 100%;
   }
 }

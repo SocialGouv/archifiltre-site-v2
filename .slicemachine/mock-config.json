@@ -1,0 +1,52 @@
+{
+  "_cts": {
+    "home": {},
+    "aboutUs": {},
+    "faq": {},
+    "docs": {},
+    "homepage": {}
+  },
+  "slices": {
+    "HomeProduct": {
+      "default": {
+        "primary": {},
+        "items": {
+          "picto": {
+            "content": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85"
+          }
+        }
+      }
+    },
+    "AboutCurrent": {},
+    "AboutPeople": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "FaqQa": {
+      "default": {
+        "primary": {},
+        "items": {
+          "answer": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "ProductDefinition": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "ProductVersions": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}

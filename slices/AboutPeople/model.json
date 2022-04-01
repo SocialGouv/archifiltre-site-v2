@@ -1,0 +1,63 @@
+{
+  "id": "about_people",
+  "type": "SharedSlice",
+  "name": "AboutPeople",
+  "description": "AboutPeople",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "AboutPeople",
+      "primary": {
+        "title": {
+          "config": {
+            "label": "Titre",
+            "placeholder": "L'équipe actuelle"
+          },
+          "type": "Text"
+        }
+      },
+      "items": {
+        "image": {
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          },
+          "type": "Image"
+        },
+        "name": {
+          "config": {
+            "label": "Nom",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "surname": {
+          "config": {
+            "label": "Prenom",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "job": {
+          "config": {
+            "label": "Job",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "linkedin": {
+          "config": {
+            "label": "Linkedin",
+            "placeholder": "",
+            "allowTargetBlank": false
+          },
+          "type": "Link"
+        }
+      }
+    }
+  ]
+}

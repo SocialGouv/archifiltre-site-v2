@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/AboutPeople';
+
+export default {
+  title: 'slices/AboutPeople'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","name":"Default","slice_type":"about_people","items":[{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea?w=900&h=500&fit=crop"},"name":"generate frictionless paradigms","surname":"visualize leading-edge ROI","job":"engineer distributed blockchains","linkedin":{"link_type":"Web","url":"https://prismic.io"}},{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"},"name":"incentivize holistic systems","surname":"synergize e-business bandwidth","job":"synergize mission-critical paradigms","linkedin":{"link_type":"Web","url":"http://twitter.com"}},{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1587840171670-8b850147754e?w=900&h=500&fit=crop"},"name":"disintermediate value-added e-services","surname":"facilitate wireless action-items","job":"integrate granular web-readiness","linkedin":{"link_type":"Web","url":"http://twitter.com"}},{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"},"name":"empower front-end channels","surname":"target cross-media content","job":"envisioneer strategic e-tailers","linkedin":{"link_type":"Web","url":"http://google.com"}}],"primary":{"title":"benchmark best-of-breed systems"},"id":"_Default"}} />
+_Default.storyName = 'Default'

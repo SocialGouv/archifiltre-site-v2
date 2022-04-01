@@ -1,0 +1,48 @@
+{
+  "id": "product_versions",
+  "type": "SharedSlice",
+  "name": "ProductVersions",
+  "description": "ProductVersions",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "ProductVersions",
+      "primary": {
+        "name": {
+          "config": {
+            "label": "Nom",
+            "placeholder": "Romantic Racoon"
+          },
+          "type": "Text"
+        },
+        "number": {
+          "config": {
+            "label": "Numero",
+            "placeholder": "v1.0.1"
+          },
+          "type": "Text"
+        },
+        "date": {
+          "config": {
+            "label": "Date",
+            "placeholder": ""
+          },
+          "type": "Date"
+        },
+        "changelog": {
+          "config": {
+            "label": "Changelog",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "items": {}
+    }
+  ]
+}

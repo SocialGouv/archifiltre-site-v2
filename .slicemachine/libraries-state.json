@@ -1,0 +1,528 @@
+{
+  "slices": {
+    "components": {
+      "about_people": {
+        "library": "slices",
+        "id": "about_people",
+        "name": "AboutPeople",
+        "description": "AboutPeople",
+        "model": {
+          "id": "about_people",
+          "type": "SharedSlice",
+          "name": "AboutPeople",
+          "description": "AboutPeople",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "AboutPeople",
+              "primary": {
+                "title": {
+                  "config": {
+                    "label": "Titre",
+                    "placeholder": "L'équipe actuelle"
+                  },
+                  "type": "Text"
+                }
+              },
+              "items": {
+                "image": {
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "name": {
+                  "config": {
+                    "label": "Nom",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "surname": {
+                  "config": {
+                    "label": "Prenom",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "job": {
+                  "config": {
+                    "label": "Job",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "linkedin": {
+                  "config": {
+                    "label": "Linkedin",
+                    "placeholder": "",
+                    "allowTargetBlank": false
+                  },
+                  "type": "Link"
+                }
+              }
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "about_people",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea?w=900&h=500&fit=crop"
+                },
+                "name": "generate frictionless paradigms",
+                "surname": "visualize leading-edge ROI",
+                "job": "engineer distributed blockchains",
+                "linkedin": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"
+                },
+                "name": "incentivize holistic systems",
+                "surname": "synergize e-business bandwidth",
+                "job": "synergize mission-critical paradigms",
+                "linkedin": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?w=900&h=500&fit=crop"
+                },
+                "name": "disintermediate value-added e-services",
+                "surname": "facilitate wireless action-items",
+                "job": "integrate granular web-readiness",
+                "linkedin": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+                },
+                "name": "empower front-end channels",
+                "surname": "target cross-media content",
+                "job": "envisioneer strategic e-tailers",
+                "linkedin": {
+                  "link_type": "Web",
+                  "url": "http://google.com"
+                }
+              }
+            ],
+            "primary": {
+              "title": "benchmark best-of-breed systems"
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "faq_qa": {
+        "library": "slices",
+        "id": "faq_qa",
+        "name": "FaqQa",
+        "description": "FaqQa",
+        "model": {
+          "id": "faq_qa",
+          "type": "SharedSlice",
+          "name": "FaqQa",
+          "description": "FaqQa",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "FaqQa",
+              "primary": {},
+              "items": {
+                "question": {
+                  "config": {
+                    "label": "Question",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "answer": {
+                  "config": {
+                    "label": "Reponse",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                }
+              }
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "faq_qa",
+            "items": [
+              {
+                "question": "synthesize seamless paradigms",
+                "answer": [
+                  {
+                    "type": "paragraph",
+                    "text": "Labore labore est aliqua voluptate amet anim eiusmod ad anim sit ex laborum eu irure. Ut sunt laboris fugiat ad fugiat aute sint cillum labore ut tempor ea amet do. Lorem do dolor elit cupidatat fugiat exercitation quis adipisicing mollit.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "question": "strategize transparent relationships",
+                "answer": [
+                  {
+                    "type": "paragraph",
+                    "text": "Culpa reprehenderit mollit velit adipisicing ut voluptate voluptate esse tempor elit officia adipisicing laboris do nostrud.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "question": "iterate real-time infomediaries",
+                "answer": [
+                  {
+                    "type": "paragraph",
+                    "text": "Nisi ut ea minim laborum aliqua aliqua labore enim nostrud. Velit Lorem proident quis fugiat nisi voluptate elit.",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "primary": {}
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "home_product": {
+        "library": "slices",
+        "id": "home_product",
+        "name": "HomeProduct",
+        "description": "HomeProduct",
+        "model": {
+          "id": "home_product",
+          "type": "SharedSlice",
+          "name": "HomeProduct",
+          "description": "HomeProduct",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "HomeProduct",
+              "primary": {
+                "title": {
+                  "config": {
+                    "label": "Titre",
+                    "placeholder": "Titre"
+                  },
+                  "type": "Text"
+                },
+                "subtitle": {
+                  "config": {
+                    "label": "Sous-titre",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                }
+              },
+              "items": {
+                "picto": {
+                  "config": {
+                    "label": "Picto",
+                    "constraint": {},
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                }
+              }
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "home_product",
+            "items": [
+              {
+                "picto": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
+                },
+                "description": "exploit world-class channels"
+              },
+              {
+                "picto": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&h=500&fit=crop"
+                },
+                "description": "generate leading-edge systems"
+              },
+              {
+                "picto": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=900&h=500&fit=crop"
+                },
+                "description": "benchmark distributed portals"
+              },
+              {
+                "picto": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+                },
+                "description": "transition extensible ROI"
+              }
+            ],
+            "primary": {
+              "title": "visualize customized schemas",
+              "subtitle": "transition bleeding-edge e-business"
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "product_definition": {
+        "library": "slices",
+        "id": "product_definition",
+        "name": "ProductDefinition",
+        "description": "ProductDefinition",
+        "model": {
+          "id": "product_definition",
+          "type": "SharedSlice",
+          "name": "ProductDefinition",
+          "description": "ProductDefinition",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ProductDefinition",
+              "primary": {
+                "title": {
+                  "config": {
+                    "label": "Titre",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                },
+                "picto": {
+                  "config": {
+                    "label": "Picto",
+                    "constraint": {},
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "product_definition",
+            "items": [],
+            "primary": {
+              "title": "transition efficient architectures",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Nulla et proident Lorem adipisicing laboris minim et exercitation consequat. Commodo dolore dolor aute magna anim laborum reprehenderit velit ut.",
+                  "spans": []
+                }
+              ],
+              "picto": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+              }
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "product_versions": {
+        "library": "slices",
+        "id": "product_versions",
+        "name": "ProductVersions",
+        "description": "ProductVersions",
+        "model": {
+          "id": "product_versions",
+          "type": "SharedSlice",
+          "name": "ProductVersions",
+          "description": "ProductVersions",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ProductVersions",
+              "primary": {
+                "name": {
+                  "config": {
+                    "label": "Nom",
+                    "placeholder": "Romantic Racoon"
+                  },
+                  "type": "Text"
+                },
+                "number": {
+                  "config": {
+                    "label": "Numero",
+                    "placeholder": "v1.0.1"
+                  },
+                  "type": "Text"
+                },
+                "date": {
+                  "config": {
+                    "label": "Date",
+                    "placeholder": ""
+                  },
+                  "type": "Date"
+                },
+                "changelog": {
+                  "config": {
+                    "label": "Changelog",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "product_versions",
+            "items": [],
+            "primary": {
+              "name": "strategize viral synergies",
+              "number": "monetize dynamic action-items",
+              "date": "2020-02-24",
+              "changelog": [
+                {
+                  "type": "paragraph",
+                  "text": "Sint commodo incididunt magna cillum eu ad incididunt aute velit culpa proident pariatur deserunt veniam. Mollit eu consequat ut qui aliqua non nostrud dolore in do Lorem sint et sit. Dolor et nostrud velit quis laboris occaecat eu.",
+                  "spans": []
+                }
+              ]
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
+    }
+  }
+}

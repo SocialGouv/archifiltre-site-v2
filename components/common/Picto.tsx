@@ -1,3 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+interface PictoPngProps {
+    src: string;
+    alt: string;
+}
+
 export const ArrowButtonPicto: React.FC = () => (
     <svg width="17" height="13" viewBox="0 0 17 13" fill="none">
         <path
@@ -5,4 +11,10 @@ export const ArrowButtonPicto: React.FC = () => (
             fill="#232326"
         />
     </svg>
+);
+
+export const PictoPng: React.FC<PictoPngProps> = ({ src, alt }) => (
+    <div className="picto">
+        <img src={src} alt={alt} />
+    </div>
 );

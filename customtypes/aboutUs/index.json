@@ -1,0 +1,42 @@
+{
+  "id": "aboutUs",
+  "label": "AboutUs",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Titre",
+          "placeholder": "Qui sommes-nous ?"
+        },
+        "type": "Text"
+      },
+      "description": {
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "about_people": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}
