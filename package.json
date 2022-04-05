@@ -17,8 +17,10 @@
     "gsap": "^3.10.1",
     "include-media": "^1.4.10",
     "next": "12.1.4",
+    "os-name": "^5.0.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-markdown": "^8.0.2",
     "sass": "^1.49.10",
     "zustand": "^3.7.1"
   },

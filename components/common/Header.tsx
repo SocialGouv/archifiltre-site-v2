@@ -6,8 +6,11 @@ export const Header: React.FC = () => (
     <header id="header">
         <Logo />
         <nav>
-            <Link href="/produits">
-                <a className="underline">produits</a>
+            <Link href="/docs">
+                <a className="underline">Docs</a>
+            </Link>
+            <Link href="/mails">
+                <a className="underline">Mails</a>
             </Link>
             <Link href="/qui-sommes-nous">
                 <a className="underline">qui sommes-nous ?</a>
@@ -17,6 +20,9 @@ export const Header: React.FC = () => (
             </Link>
             <Link href="/telechargements">
                 <a className="underline">téléchargements</a>
+            </Link>
+            <Link href="/statistiques">
+                <a className="underline">statistiques</a>
             </Link>
         </nav>
 

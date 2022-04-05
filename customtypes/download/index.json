@@ -1,0 +1,41 @@
+{
+  "id": "download",
+  "label": "Download",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Docs": {
+      "uid": {
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "download_infos": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Mails": {
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "download_infos": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

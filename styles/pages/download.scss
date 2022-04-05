@@ -1,0 +1,77 @@
+.download {
+  &#page {
+    margin: 0 auto;
+    width: 110rem;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h1 {
+    @extend %description-75-m;
+
+    margin: 0 0 5rem;
+  }
+
+  h2 {
+    @extend %description-20;
+
+    margin: 0 0 10rem;
+    opacity: 0.5;
+  }
+
+  &__products {
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      h3 {
+        font-size: 4rem;
+        font-weight: 600;
+        margin: 0 0 4rem;
+        text-align: center;
+
+        span {
+          font-size: 2.5rem;
+          margin-left: 1rem;
+        }
+      }
+
+      ul {
+        @extend %description-18;
+
+        margin: 0 0 7.5rem;
+
+        li {
+          opacity: 0.5;
+
+          &:not(:last-child) {
+            margin: 0 0 0.5rem;
+          }
+        }
+      }
+
+      button,
+      a {
+        background: #026fecee;
+        border: 0;
+        border-radius: 7px;
+        color: #fff;
+        font-size: 1.2rem;
+        height: 4.5rem;
+        line-height: 1.4;
+        padding: 1.5rem 2.5rem;
+      }
+
+      button {
+        margin-right: 2rem;
+      }
+
+      a {
+        background: #000;
+      }
+    }
+  }
+}

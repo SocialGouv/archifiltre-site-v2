@@ -1,0 +1,18 @@
+[
+  {
+    "variation": "default",
+    "name": "Default",
+    "slice_type": "download_infos",
+    "items": [],
+    "primary": {
+      "description": "visualize strategic e-business",
+      "changelog": [
+        {
+          "type": "paragraph",
+          "text": "Eu cillum officia eiusmod. Officia elit et id incididunt exercitation cupidatat consectetur dolor ex.",
+          "spans": []
+        }
+      ]
+    }
+  }
+]

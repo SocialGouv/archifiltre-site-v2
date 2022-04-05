@@ -4,7 +4,9 @@
     "aboutUs": {},
     "faq": {},
     "docs": {},
-    "homepage": {}
+    "homepage": {},
+    "download": {},
+    "mails": {}
   },
   "slices": {
     "HomeProduct": {
@@ -44,6 +46,12 @@
       }
     },
     "ProductVersions": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "HomeArticleVideo": {},
+    "DownloadInfos": {
       "default": {
         "primary": {}
       }

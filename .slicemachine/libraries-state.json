@@ -159,6 +159,69 @@
         },
         "screenshotPaths": {}
       },
+      "download_infos": {
+        "library": "slices",
+        "id": "download_infos",
+        "name": "DownloadInfos",
+        "description": "DownloadInfos",
+        "model": {
+          "id": "download_infos",
+          "type": "SharedSlice",
+          "name": "DownloadInfos",
+          "description": "DownloadInfos",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "DownloadInfos",
+              "primary": {
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  },
+                  "type": "Text"
+                },
+                "changelog": {
+                  "config": {
+                    "label": "Changelog",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "download_infos",
+            "items": [],
+            "primary": {
+              "description": "visualize strategic e-business",
+              "changelog": [
+                {
+                  "type": "paragraph",
+                  "text": "Eu cillum officia eiusmod. Officia elit et id incididunt exercitation cupidatat consectetur dolor ex.",
+                  "spans": []
+                }
+              ]
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "faq_qa": {
         "library": "slices",
         "id": "faq_qa",
@@ -236,6 +299,74 @@
               }
             ],
             "primary": {}
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "home_article_video": {
+        "library": "slices",
+        "id": "home_article_video",
+        "name": "HomeArticleVideo",
+        "description": "HomeArticleVideo",
+        "model": {
+          "id": "home_article_video",
+          "type": "SharedSlice",
+          "name": "HomeArticleVideo",
+          "description": "HomeArticleVideo",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "HomeArticleVideo",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "home_article_video",
+            "items": [],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Facilitate sexy synergies",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Adipisicing tempor nisi consectetur. Anim ea occaecat aute proident aute dolor est sint. Deserunt deserunt Lorem aute duis.",
+                  "spans": []
+                }
+              ]
+            }
           }
         },
         "meta": {

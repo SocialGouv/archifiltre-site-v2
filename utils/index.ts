@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { ProductsVersion } from '../store/VersionsStore';
 
 export const HAS_WINDOW = typeof window !== 'undefined';
 
@@ -28,3 +29,38 @@ export const isIndexActive = (
     activeIndex: number,
     itemIndex: number,
 ): boolean => activeIndex === itemIndex;
+
+export const getVersionsFromGH = (
+    storeSetter: (versions: ProductsVersion) => void,
+) => {
+    Promise.all([
+        fetch(
+            `https://api.github.com/repos/SocialGouv/archifiltre-docs/releases`,
+        ),
+        fetch(
+            'https://api.github.com/repos/SocialGouv/archifiltre-mails/releases',
+        ),
+    ])
+        .then(async ([docsData, mailsData]) => {
+            const docs = await docsData.json();
+            const mails = await mailsData.json();
+
+            storeSetter({
+                docs,
+                mails,
+            });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+export const detectOS = (): string => {
+    let detectedOS = 'OS Inconnu';
+
+    if (navigator.appVersion.indexOf('Mac') != -1) detectedOS = 'MacOS';
+    if (navigator.appVersion.indexOf('Win') != -1) detectedOS = 'Windows';
+    if (navigator.appVersion.indexOf('Linux') != -1) detectedOS = 'Linux';
+
+    return detectedOS;
+};

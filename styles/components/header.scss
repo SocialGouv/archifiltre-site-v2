@@ -1,11 +1,13 @@
 #header {
   align-items: center;
+  background: #fff;
   display: flex;
+  height: 15rem;
   justify-content: space-between;
   padding: 0 $base-margin;
   position: fixed;
-  top: 4rem;
   width: 100%;
+  z-index: 3;
 
   #logo {
     flex: 1;
@@ -15,6 +17,7 @@
     @extend %description-18;
 
     flex: 1;
+    min-width: 72.5rem;
     text-align: center;
 
     a {
