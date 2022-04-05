@@ -1,40 +1,35 @@
 /* eslint-disable react/no-unescaped-entities */
+import {
+    ImageField,
+    KeyTextField,
+    SharedSlice,
+    SharedSliceVariation,
+} from '@prismicio/types';
 import gsap from 'gsap';
 import { useRouter } from 'next/router';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { PageWithPrismic } from '../../pages';
+import {
+    SlicedPrismicDocument,
+    WithPrismicSlicedContent,
+} from '../../utils/prismic/types';
 import { ButtonLink } from '../common/Button';
 import { Page } from '../common/Page';
 import { ArrowButtonPicto, PictoPng } from '../common/Picto';
 
-interface SliceHomeItem {
-    picto: {
-        dimensions: {
-            width: number;
-            height: number;
-        };
-        alt: string;
-        copyright: null;
-        url: string;
-    };
-    description: string;
-}
+type HomeSliceItem = {
+    picto: ImageField;
+    description: KeyTextField;
+};
 
-interface SliceHomePrimary {
-    subtitle: string;
-    title: string;
-}
+type HomeSlicePrimary = {
+    subtitle: KeyTextField;
+    title: KeyTextField;
+};
 
-export interface ApiSliceObject<TPrimary, TItem> {
-    primary: TPrimary;
-    items: TItem[];
-    slice_label?: string;
-    slice_type?: string;
-    variation: string;
-    version: string;
-}
-
-export type SliceHome = ApiSliceObject<SliceHomePrimary, SliceHomeItem>;
+export type HomeSlice = SharedSlice<
+    string,
+    SharedSliceVariation<string, HomeSlicePrimary, HomeSliceItem>
+>;
 
 interface HomeProductProps {
     title: string;
@@ -60,15 +55,16 @@ export const HomeProduct: React.FC<HomeProductProps> = ({
     </div>
 );
 
-export const Home: React.FC<PageWithPrismic> = ({ content, test }) => {
+export type HomeProps = WithPrismicSlicedContent<HomeSlice>;
+export type HomePrismicDocument = SlicedPrismicDocument<HomeSlice>;
+
+export const Home: React.FC<HomeProps> = ({ content }) => {
     const slices = content.data.slices;
     const timeline = useRef(gsap.timeline());
     const productContent = useRef<Element[]>([]);
     const [index, setIndex] = useState(0);
     const { pathname } = useRouter();
     const isDocs = pathname === '/docs';
-
-    console.log(slices);
 
     useLayoutEffect(() => {
         productContent.current = gsap.utils.toArray(
@@ -91,26 +87,26 @@ export const Home: React.FC<PageWithPrismic> = ({ content, test }) => {
 
     return (
         <Page className="home">
-            {test.map((slice: ApiSliceObject, index: number) => (
+            {slices.map((slice, index) => (
                 <HomeProduct
                     index={index}
-                    title={slice.primary.title}
-                    subtitle={slice.primary.subtitle}
+                    title={slice.primary.title ?? ''}
+                    subtitle={slice.primary.subtitle ?? ''}
                     linkToProduct={isDocs ? '/mails' : '/docs'}
                     key={index}
                 >
                     <ul>
-                        {slice.items.map(
-                            (item: SliceHomeItem, index: number) => (
-                                <li key={index}>
+                        {slice.items.map((item, index) => (
+                            <li key={index}>
+                                {item.picto.url && item.picto.alt && (
                                     <PictoPng
                                         src={item.picto.url}
                                         alt={item.picto.alt}
                                     />
-                                    {item.description}
-                                </li>
-                            ),
-                        )}
+                                )}
+                                {item.description}
+                            </li>
+                        ))}
                     </ul>
                 </HomeProduct>
             ))}

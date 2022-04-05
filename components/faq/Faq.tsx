@@ -1,11 +1,46 @@
+import { PrismicRichText } from '@prismicio/react';
+import {
+    KeyTextField,
+    RichTextField,
+    SharedSlice,
+    SharedSliceVariation,
+} from '@prismicio/types';
 import { useState } from 'react';
-import { PageWithPrismic } from '../../pages';
 import { isIndexActive } from '../../utils';
+import {
+    SlicedAndCustomPrismicDocument,
+    WithPrismicSlicedAndCustomContent,
+} from '../../utils/prismic/types';
 import { ButtonCircle } from '../common/Button';
 import { Page } from '../common/Page';
 import { Separator } from '../common/Separator';
 
-export const Faq: React.FC<PageWithPrismic> = ({ content }) => {
+export type FaqSliceItem = {
+    question: KeyTextField;
+    answer: RichTextField;
+};
+
+export type FaqCustomFields = {
+    title: KeyTextField;
+    subtitle: KeyTextField;
+};
+
+export type FaqSlice = SharedSlice<
+    string,
+    SharedSliceVariation<string, never, FaqSliceItem>
+>;
+
+export type FaqProps = WithPrismicSlicedAndCustomContent<
+    FaqSlice,
+    FaqCustomFields
+>;
+
+export type FaqPrismicDocument = SlicedAndCustomPrismicDocument<
+    FaqSlice,
+    FaqCustomFields
+>;
+
+export const Faq: React.FC<FaqProps> = ({ content }) => {
     const [activeIndex, setActiveIndex] = useState(-1);
     const { title, subtitle, slices } = content.data;
 
@@ -15,7 +50,7 @@ export const Faq: React.FC<PageWithPrismic> = ({ content }) => {
             <h2>{subtitle}</h2>
 
             <div className="faq__qa">
-                {slices[0].items.map((item: any, index: number) => (
+                {slices[0]?.items.map((item, index) => (
                     <div
                         className="faq__qa__item"
                         key={index}
@@ -28,8 +63,9 @@ export const Faq: React.FC<PageWithPrismic> = ({ content }) => {
                             </ButtonCircle>
                         </div>
                         <div className="faq__qa__item__answer">
-                            {isIndexActive(activeIndex, index) &&
-                                item.answer[0].text}
+                            {isIndexActive(activeIndex, index) && (
+                                <PrismicRichText field={item.answer} />
+                            )}
                         </div>
                         <Separator />
                     </div>

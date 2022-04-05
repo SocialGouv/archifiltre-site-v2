@@ -1,18 +1,16 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { Home, SliceHome } from '../components/home/Home';
+import { Home, HomePrismicDocument, HomeProps } from '../components/home/Home';
 import { HOMEPAGE } from '../utils/constant';
-import { Client, PrismicDocumentType } from '../utils/prismicHelpers';
+import { Client } from '../utils/prismic/helpers';
 
-export interface PageWithPrismic {
-    content: PrismicDocumentType;
-}
+export type HomePageProps = HomeProps;
 
-const HomePage: NextPage<PageWithPrismic> = ({ content }) => {
+const HomePage: NextPage<HomePageProps> = ({ content }) => {
     return <Home content={content} />;
 };
 
-export const getStaticProps: GetStaticProps<PageWithPrismic> = async () => {
-    const content = (await Client().getSingle(HOMEPAGE)) as SliceHome;
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+    const content = await Client().getSingle<HomePrismicDocument>(HOMEPAGE);
 
     return {
         props: {

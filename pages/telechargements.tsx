@@ -1,16 +1,21 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { Download } from '../components/download/Download';
+import {
+    Download,
+    DownloadPrismicDocument,
+    DownloadProps,
+} from '../components/download/Download';
 
 import { DOWNLOAD } from '../utils/constant';
-import { Client } from '../utils/prismicHelpers';
-import { PageWithPrismic } from './index';
+import { Client } from '../utils/prismic/helpers';
 
-const DownloadPage: NextPage<PageWithPrismic> = ({ content }) => {
+export type DownloadPageProps = DownloadProps;
+
+const DownloadPage: NextPage<DownloadProps> = ({ content }) => {
     return <Download content={content} />;
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-    const content = await Client().getSingle(DOWNLOAD);
+export const getStaticProps: GetStaticProps<DownloadProps> = async () => {
+    const content = await Client().getSingle<DownloadPrismicDocument>(DOWNLOAD);
 
     return {
         props: {

@@ -1,15 +1,20 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { About } from '../components/about/About';
+import {
+    About,
+    AboutPrismicDocument,
+    AboutProps,
+} from '../components/about/About';
 import { ABOUT_US } from '../utils/constant';
-import { Client } from '../utils/prismicHelpers';
-import { PageWithPrismic } from './index';
+import { Client } from '../utils/prismic/helpers';
 
-const AboutPage: NextPage<PageWithPrismic> = ({ content }) => {
+export type AboutPageProps = AboutProps;
+
+const AboutPage: NextPage<AboutProps> = ({ content }) => {
     return <About content={content} />;
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-    const content = await Client().getSingle(ABOUT_US);
+export const getStaticProps: GetStaticProps<AboutProps> = async () => {
+    const content = await Client().getSingle<AboutPrismicDocument>(ABOUT_US);
 
     return {
         props: {

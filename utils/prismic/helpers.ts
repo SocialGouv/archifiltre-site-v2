@@ -1,19 +1,6 @@
 import * as prismic from '@prismicio/client';
-import { PrismicDocument } from '@prismicio/types';
-import { apiEndpoint, accessToken, Router } from '../prismicConfiguration';
-
-export type PrismicDocumentType = PrismicDocument<
-    Record<string, any>,
-    string,
-    string
->;
-
-interface PrismicRouter {
-    routes: {
-        type: string;
-        path: string;
-    }[];
-}
+import { apiEndpoint, accessToken, Router } from '../../prismicConfiguration';
+import { PrismicRouter } from './types';
 
 export const Client = () =>
     prismic.createClient(apiEndpoint, createClientOptions(accessToken, Router));

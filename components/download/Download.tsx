@@ -1,18 +1,41 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import { PrismicRichText } from '@prismicio/react';
+import {
+    RichTextField,
+    KeyTextField,
+    SharedSlice,
+    SharedSliceVariation,
+    FilledLinkToWebField,
+} from '@prismicio/types';
 import Link from 'next/link';
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
-import { PageWithPrismic } from '../../pages';
 import { versionsStore } from '../../store/VersionsStore';
 import { getVersionsFromGH } from '../../utils';
+import {
+    SlicedPrismicDocument,
+    WithPrismicSlicedContent,
+} from '../../utils/prismic/types';
 import { Page } from '../common/Page';
 
-export const Download: React.FC<PageWithPrismic> = ({ content }) => {
+type DownloadSlicePrimary = {
+    changelog: RichTextField;
+    title: KeyTextField;
+    documentation: FilledLinkToWebField;
+};
+
+export type DownloadSlice = SharedSlice<
+    string,
+    SharedSliceVariation<string, DownloadSlicePrimary>
+>;
+
+export type DownloadProps = WithPrismicSlicedContent<DownloadSlice>;
+
+export type DownloadPrismicDocument = SlicedPrismicDocument<DownloadSlice>;
+
+export const Download: React.FC<DownloadProps> = ({ content }) => {
     const { setProductsVersions, productsVersions } = versionsStore();
-    const { slices, slices1 } = content.data;
-    const docs = slices[0].primary;
-    const mails = slices1[0].primary;
+    const { slices } = content.data;
 
     useIsomorphicLayoutEffect(() => {
         !productsVersions.docs.length && getVersionsFromGH(setProductsVersions);
@@ -28,29 +51,17 @@ export const Download: React.FC<PageWithPrismic> = ({ content }) => {
                 Mails d'Archifiltre.
             </h2>
             <div className="download__products">
-                <div className="download__products__item">
-                    <h3>
-                        Docs
-                        <span>{productsVersions.docs[0].name}</span>
-                    </h3>
-                    <PrismicRichText field={docs.changelog} />
-                    <button className="btn-link">Télécharger Docs</button>
-                    <Link href="https://github.com/SocialGouv/archifiltre-docs">
-                        <a className="btn-link documentation" target="_blank">
-                            Documentation
-                        </a>
-                    </Link>
-                </div>
-
-                <div className="download__products__item">
-                    <h3>
-                        Mails
-                        <span>{productsVersions.mails[0].name}</span>
-                    </h3>
-                    <PrismicRichText field={mails.changelog} />
-                    <div className="download__products__item__buttons">
-                        <button className="btn-link">Télécharger Mails</button>
-                        <Link href="https://github.com/SocialGouv/archifiltre-mails">
+                {slices.map((slice, index) => (
+                    <div className="download__products__item" key={index}>
+                        <h3>
+                            {slice.primary.title}
+                            <span>{productsVersions.docs[0].name}</span>
+                        </h3>
+                        <PrismicRichText field={slice.primary.changelog} />
+                        <button className="btn-link">
+                            Télécharger {slice.primary.title}
+                        </button>
+                        <Link href={slice.primary.documentation.url}>
                             <a
                                 className="btn-link documentation"
                                 target="_blank"
@@ -59,7 +70,7 @@ export const Download: React.FC<PageWithPrismic> = ({ content }) => {
                             </a>
                         </Link>
                     </div>
-                </div>
+                ))}
             </div>
         </Page>
     );

@@ -1,25 +1,60 @@
+import { PrismicRichText } from '@prismicio/react';
+import {
+    ImageField,
+    KeyTextField,
+    RichTextField,
+    SharedSlice,
+    SharedSliceVariation,
+} from '@prismicio/types';
 import gsap from 'gsap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
-import { PageWithPrismic } from '../../pages';
 import { versionsStore } from '../../store/VersionsStore';
 import { getVersionsFromGH } from '../../utils';
+import {
+    SlicedAndCustomPrismicDocument,
+    WithPrismicSlicedAndCustomContent,
+} from '../../utils/prismic/types';
 import { Page } from '../common/Page';
 import { PictoPng } from '../common/Picto';
 
 type PanelProps = 'produit' | 'versions';
 
-export const Product: React.FC<PageWithPrismic> = ({ content }) => {
+type ProductSlicePrimary = {
+    description: RichTextField;
+    picto: ImageField;
+    title: KeyTextField;
+};
+
+export type ProductSlice = SharedSlice<
+    string,
+    SharedSliceVariation<string, ProductSlicePrimary>
+>;
+
+export type ProductCustomFields = {
+    title: KeyTextField;
+};
+
+export type ProductProps = WithPrismicSlicedAndCustomContent<
+    ProductSlice,
+    ProductCustomFields
+>;
+
+export type ProductPrismicDocument = SlicedAndCustomPrismicDocument<
+    ProductSlice,
+    ProductCustomFields
+>;
+
+export const Product: React.FC<ProductProps> = ({ content }) => {
     const timeline = useRef(gsap.timeline());
     const { pathname } = useRouter();
     const [panel, setPanel] = useState<PanelProps>('produit');
     const { productsVersions, setProductsVersions } = versionsStore();
 
-    const { title, slices } = content.data;
-    const product = slices;
+    const { title, slices: product } = content.data;
     const isDocs = pathname === '/docs';
     const versions = isDocs ? productsVersions.docs : productsVersions.mails;
 
@@ -84,18 +119,20 @@ export const Product: React.FC<PageWithPrismic> = ({ content }) => {
                 <div className="product__general__title">
                     <span>Produit</span>
                 </div>
-                {product.map((productInfo: any, index: number) => (
+                {product.map((productInfo, index: number) => (
                     <div className="product__general__item" key={index}>
                         <div className="product__general__item__title">
                             <PictoPng
-                                src={productInfo.primary.picto.url}
-                                alt={productInfo.primary.picto.alt}
+                                src={productInfo.primary.picto.url ?? ''}
+                                alt={productInfo.primary.picto.alt ?? ''}
                             />
                             {productInfo.primary.title}
                         </div>
 
                         <div className="product__general__item__description">
-                            {productInfo.primary.description[0].text}
+                            <PrismicRichText
+                                field={productInfo.primary.description}
+                            />
                         </div>
                     </div>
                 ))}

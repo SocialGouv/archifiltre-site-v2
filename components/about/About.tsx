@@ -1,9 +1,52 @@
 /* eslint-disable @next/next/no-img-element */
+import {
+    FilledLinkToWebField,
+    ImageField,
+    KeyTextField,
+    RichTextField,
+    SharedSlice,
+    SharedSliceVariation,
+} from '@prismicio/types';
 import Link from 'next/link';
-import { PageWithPrismic } from '../../pages';
+import {
+    SlicedAndCustomPrismicDocument,
+    WithPrismicSlicedAndCustomContent,
+} from '../../utils/prismic/types';
 import { Page } from '../common/Page';
 
-export const About: React.FC<PageWithPrismic> = ({ content }) => {
+type AboutSlicePrimary = {
+    title: KeyTextField;
+};
+
+type AboutSliceItem = {
+    image: ImageField;
+    name: KeyTextField;
+    surname: KeyTextField;
+    job: KeyTextField;
+    linkedin: FilledLinkToWebField;
+};
+
+export type AboutSlice = SharedSlice<
+    string,
+    SharedSliceVariation<string, AboutSlicePrimary, AboutSliceItem>
+>;
+
+export type AboutCustomFields = {
+    description: RichTextField;
+    title: KeyTextField;
+};
+
+export type AboutProps = WithPrismicSlicedAndCustomContent<
+    AboutSlice,
+    AboutCustomFields
+>;
+
+export type AboutPrismicDocument = SlicedAndCustomPrismicDocument<
+    AboutSlice,
+    AboutCustomFields
+>;
+
+export const About: React.FC<AboutProps> = ({ content }) => {
     const { title, description, slices } = content.data;
 
     return (
@@ -11,21 +54,21 @@ export const About: React.FC<PageWithPrismic> = ({ content }) => {
             <h1>{title}</h1>
             <h2>{description}</h2>
 
-            {slices.map((slice: any, index: number) => (
+            {slices.map((slice, index) => (
                 <div className="about__section" key={index}>
                     <h3 className="about__section__title">
                         {slice.primary.title}
                     </h3>
                     <div className="about__section__people">
-                        {slice.items.map((item: any, index: number) => (
+                        {slice.items.map((item, index) => (
                             <div
                                 className="about__section__people__item"
                                 key={index}
                             >
                                 <div className="about__section__people__item__avatar">
                                     <img
-                                        src={item.image.url}
-                                        alt={item.image.alt}
+                                        src={item.image.url ?? ''}
+                                        alt={item.image.alt ?? ''}
                                     />
                                 </div>
                                 <div className="about__section__people__item__name">
