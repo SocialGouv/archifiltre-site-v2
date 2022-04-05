@@ -7,11 +7,14 @@ import {
     SharedSlice,
     SharedSliceVariation,
     FilledLinkToWebField,
+    SelectField,
 } from '@prismicio/types';
 import Link from 'next/link';
-import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
-import { versionsStore } from '../../store/VersionsStore';
-import { getVersionsFromGH } from '../../utils';
+import React from 'react';
+import {
+    ArchifiltreProductVersionInfo,
+    ArchifiltreVersions,
+} from '../../utils';
 import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,
@@ -22,6 +25,7 @@ type DownloadSlicePrimary = {
     changelog: RichTextField;
     title: KeyTextField;
     documentation: FilledLinkToWebField;
+    key: SelectField<'docs' | 'mails'>;
 };
 
 export type DownloadSlice = SharedSlice<
@@ -29,48 +33,78 @@ export type DownloadSlice = SharedSlice<
     SharedSliceVariation<string, DownloadSlicePrimary>
 >;
 
-export type DownloadProps = WithPrismicSlicedContent<DownloadSlice>;
+export type DownloadProps = WithPrismicSlicedContent<DownloadSlice> & {
+    productVersions: ArchifiltreVersions;
+};
 
 export type DownloadPrismicDocument = SlicedPrismicDocument<DownloadSlice>;
 
-export const Download: React.FC<DownloadProps> = ({ content }) => {
-    const { setProductsVersions, productsVersions } = versionsStore();
+interface DownloadProdutItemProps {
+    slice: DownloadSlice;
+    product?: ArchifiltreProductVersionInfo[number];
+}
+const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
+    slice,
+    product,
+}) => (
+    <div className="download__products__item">
+        <h3>
+            {slice.primary.title}
+            <span>
+                {product ? (
+                    product.name
+                ) : (
+                    <>
+                        <br />
+                        Pas de version stable disponible 😢
+                    </>
+                )}
+            </span>
+        </h3>
+        <PrismicRichText field={slice.primary.changelog} />
+        <button className="btn-link">Télécharger {slice.primary.title}</button>
+        <Link href={slice.primary.documentation.url}>
+            <a className="btn-link documentation" target="_blank">
+                Documentation
+            </a>
+        </Link>
+    </div>
+);
+
+export const Download: React.FC<DownloadProps> = ({
+    content,
+    productVersions,
+}) => {
     const { slices } = content.data;
-
-    useIsomorphicLayoutEffect(() => {
-        !productsVersions.docs.length && getVersionsFromGH(setProductsVersions);
-    }, []);
-
-    if (!productsVersions.docs.length) return null;
 
     return (
         <Page className="download">
             <h1>Téléchargements</h1>
             <h2>
-                Découvrez les dernières versions et nouveautés de Docs et de
-                Mails d'Archifiltre.
+                Découvrez les dernières versions et nouveautés des produits
+                d'Archifiltre.
             </h2>
             <div className="download__products">
-                {slices.map((slice, index) => (
-                    <div className="download__products__item" key={index}>
-                        <h3>
-                            {slice.primary.title}
-                            <span>{productsVersions.docs[0].name}</span>
-                        </h3>
-                        <PrismicRichText field={slice.primary.changelog} />
-                        <button className="btn-link">
-                            Télécharger {slice.primary.title}
-                        </button>
-                        <Link href={slice.primary.documentation.url}>
-                            <a
-                                className="btn-link documentation"
-                                target="_blank"
-                            >
-                                Documentation
-                            </a>
-                        </Link>
-                    </div>
-                ))}
+                {slices.map((slice, index) => {
+                    if (slice.primary.key) {
+                        const productOrError =
+                            productVersions[slice.primary.key];
+
+                        if (typeof productOrError === 'string') {
+                            return <span>{productOrError}</span>;
+                        }
+
+                        return (
+                            <DownloadProductItem
+                                slice={slice}
+                                key={index}
+                                product={
+                                    productOrError.filter(p => !p.prerelease)[0]
+                                }
+                            />
+                        );
+                    }
+                })}
             </div>
         </Page>
     );

@@ -11,9 +11,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
-import { versionsStore } from '../../store/VersionsStore';
-import { getVersionsFromGH } from '../../utils';
+import { ArchifiltreVersions } from '../../utils';
 import {
     SlicedAndCustomPrismicDocument,
     WithPrismicSlicedAndCustomContent,
@@ -41,26 +39,27 @@ export type ProductCustomFields = {
 export type ProductProps = WithPrismicSlicedAndCustomContent<
     ProductSlice,
     ProductCustomFields
->;
+> & {
+    productVersions: ArchifiltreVersions;
+};
 
 export type ProductPrismicDocument = SlicedAndCustomPrismicDocument<
     ProductSlice,
     ProductCustomFields
 >;
 
-export const Product: React.FC<ProductProps> = ({ content }) => {
+export const Product: React.FC<ProductProps> = ({
+    content,
+    productVersions,
+}) => {
     const timeline = useRef(gsap.timeline());
     const { pathname } = useRouter();
     const [panel, setPanel] = useState<PanelProps>('produit');
-    const { productsVersions, setProductsVersions } = versionsStore();
 
     const { title, slices: product } = content.data;
     const isDocs = pathname === '/docs';
-    const versions = isDocs ? productsVersions.docs : productsVersions.mails;
 
-    useIsomorphicLayoutEffect(() => {
-        !productsVersions.docs.length && getVersionsFromGH(setProductsVersions);
-    }, []);
+    const versions = isDocs ? productVersions.docs : productVersions.mails;
 
     const createNavItem = (createdPanel: PanelProps) => ({
         label: createdPanel,
@@ -85,8 +84,6 @@ export const Product: React.FC<ProductProps> = ({ content }) => {
             });
     };
 
-    if (!productsVersions.docs) return null;
-
     return (
         <Page className="product">
             <div className="product__sidebar">
@@ -94,7 +91,7 @@ export const Product: React.FC<ProductProps> = ({ content }) => {
 
                 <div className="product__sidebar__nav">
                     {[createNavItem('produit'), createNavItem('versions')].map(
-                        (item, index: number) => (
+                        (item, index) => (
                             <div
                                 onClick={item.onClick}
                                 className={item.className}
@@ -119,7 +116,7 @@ export const Product: React.FC<ProductProps> = ({ content }) => {
                 <div className="product__general__title">
                     <span>Produit</span>
                 </div>
-                {product.map((productInfo, index: number) => (
+                {product.map((productInfo, index) => (
                     <div className="product__general__item" key={index}>
                         <div className="product__general__item__title">
                             <PictoPng
@@ -142,27 +139,34 @@ export const Product: React.FC<ProductProps> = ({ content }) => {
                     <span>Versions</span>
                 </div>
                 <div className="product__versions__item__wrapper">
-                    {versions?.map((version: any, index: number) => (
-                        <div className="product__versions__item" key={index}>
-                            <div className="product__versions__item__title">
-                                <span>{version.name}</span>
-                            </div>
-                            <div className="product__versions__item__date">
-                                {version.published_at}
-                            </div>
-                            <div className="product__versions__item__changelog">
-                                <ReactMarkdown>{version.body}</ReactMarkdown>
-                            </div>
-                            <Link href={version.html_url}>
-                                <a
-                                    target="_blank"
-                                    className="product__versions__item__download underline"
-                                >
-                                    Télécharger la version
-                                </a>
-                            </Link>
-                        </div>
-                    ))}
+                    {typeof versions === 'string'
+                        ? versions
+                        : versions?.map((version, index) => (
+                              <div
+                                  className="product__versions__item"
+                                  key={index}
+                              >
+                                  <div className="product__versions__item__title">
+                                      <span>{version.name}</span>
+                                  </div>
+                                  <div className="product__versions__item__date">
+                                      {version.published_at}
+                                  </div>
+                                  <div className="product__versions__item__changelog">
+                                      <ReactMarkdown>
+                                          {version.body ?? ''}
+                                      </ReactMarkdown>
+                                  </div>
+                                  <Link href={version.html_url}>
+                                      <a
+                                          target="_blank"
+                                          className="product__versions__item__download underline"
+                                      >
+                                          Télécharger la version
+                                      </a>
+                                  </Link>
+                              </div>
+                          ))}
                 </div>
             </div>
         </Page>

@@ -4,22 +4,29 @@ import {
     ProductPrismicDocument,
     ProductProps,
 } from '../components/product/Product';
-import { DOCS } from '../utils/constant';
+import { getVersionsFromGH } from '../utils';
+import { DOCS, REVALIDATE_TIME } from '../utils/constant';
 import { Client } from '../utils/prismic/helpers';
 
-export type DocsPageProps = ProductProps;
+export type DocsPageProps = Partial<ProductProps>;
 
-const ProductPage: NextPage<DocsPageProps> = ({ content }) => {
-    return <Product content={content} />;
+const ProductPage: NextPage<DocsPageProps> = ({ content, productVersions }) => {
+    if (!content || !productVersions) return null;
+    return <Product content={content} productVersions={productVersions} />;
 };
 
 export const getStaticProps: GetStaticProps<DocsPageProps> = async () => {
-    const content = await Client().getSingle<ProductPrismicDocument>(DOCS);
+    const [content, productVersions] = await Promise.all([
+        Client().getSingle<ProductPrismicDocument>(DOCS),
+        getVersionsFromGH(),
+    ]);
 
     return {
         props: {
             content,
+            productVersions,
         },
+        revalidate: REVALIDATE_TIME,
     };
 };
 export default ProductPage;

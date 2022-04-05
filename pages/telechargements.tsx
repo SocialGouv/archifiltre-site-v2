@@ -4,23 +4,33 @@ import {
     DownloadPrismicDocument,
     DownloadProps,
 } from '../components/download/Download';
+import { getVersionsFromGH } from '../utils';
 
-import { DOWNLOAD } from '../utils/constant';
+import { DOWNLOAD, REVALIDATE_TIME } from '../utils/constant';
 import { Client } from '../utils/prismic/helpers';
 
-export type DownloadPageProps = DownloadProps;
+export type DownloadPageProps = Partial<DownloadProps>;
 
-const DownloadPage: NextPage<DownloadProps> = ({ content }) => {
-    return <Download content={content} />;
+const DownloadPage: NextPage<DownloadPageProps> = ({
+    content,
+    productVersions,
+}) => {
+    if (!content || !productVersions) return null;
+    return <Download content={content} productVersions={productVersions} />;
 };
 
-export const getStaticProps: GetStaticProps<DownloadProps> = async () => {
-    const content = await Client().getSingle<DownloadPrismicDocument>(DOWNLOAD);
+export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {
+    const [content, productVersions] = await Promise.all([
+        Client().getSingle<DownloadPrismicDocument>(DOWNLOAD),
+        getVersionsFromGH(),
+    ]);
 
     return {
         props: {
             content,
+            productVersions,
         },
+        revalidate: REVALIDATE_TIME,
     };
 };
 export default DownloadPage;

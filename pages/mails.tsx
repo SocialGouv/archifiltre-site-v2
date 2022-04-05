@@ -4,22 +4,33 @@ import {
     ProductPrismicDocument,
     ProductProps,
 } from '../components/product/Product';
-import { MAILS } from '../utils/constant';
+import { getVersionsFromGH } from '../utils';
+import { MAILS, REVALIDATE_TIME } from '../utils/constant';
 import { Client } from '../utils/prismic/helpers';
 
-export type MailsPageProps = ProductProps;
+export type MailsPageProps = Partial<ProductProps>;
 
-const ProductPage: NextPage<MailsPageProps> = ({ content }) => {
-    return <Product content={content} />;
+const ProductPage: NextPage<MailsPageProps> = ({
+    content,
+    productVersions,
+}) => {
+    if (!content || !productVersions) return null;
+    return <Product content={content} productVersions={productVersions} />;
 };
 
 export const getStaticProps: GetStaticProps<MailsPageProps> = async () => {
-    const content = await Client().getSingle<ProductPrismicDocument>(MAILS);
+    const [content, productVersions] = await Promise.all([
+        Client().getSingle<ProductPrismicDocument>(MAILS),
+        getVersionsFromGH(),
+    ]);
 
     return {
         props: {
             content,
+            productVersions,
         },
+
+        revalidate: REVALIDATE_TIME,
     };
 };
 export default ProductPage;

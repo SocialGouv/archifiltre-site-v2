@@ -1,6 +1,4 @@
-import gsap from 'gsap';
-import { ProductsVersion } from '../store/VersionsStore';
-
+import { Endpoints } from '@octokit/types';
 export const HAS_WINDOW = typeof window !== 'undefined';
 
 export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
@@ -15,11 +13,13 @@ export const qs = (className: string) => document.querySelector(className);
     Short of querySelectorAll method.
  */
 export const qsa = (className: string) => document.querySelectorAll(className);
-/**
- * 
-    Short of gsap toArray utils method to get a proper DOM elements array.
- */
-export const gqsa = (className: string) => gsap.utils.toArray(className);
+
+export type ArchifiltreProductVersionInfo =
+    Endpoints['GET /repos/{owner}/{repo}/releases']['response']['data'];
+export type ArchifiltreVersions = {
+    mails: ArchifiltreProductVersionInfo | string;
+    docs: ArchifiltreProductVersionInfo | string;
+};
 
 /**
  * 
@@ -30,30 +30,30 @@ export const isIndexActive = (
     itemIndex: number,
 ): boolean => activeIndex === itemIndex;
 
-export const getVersionsFromGH = (
-    storeSetter: (versions: ProductsVersion) => void,
-) => {
-    Promise.all([
+const ERROR_MSG = 'Impossible de récupérer les dernières version de';
+export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
+    Promise.allSettled([
         fetch(
             `https://api.github.com/repos/SocialGouv/archifiltre-docs/releases`,
         ),
         fetch(
             'https://api.github.com/repos/SocialGouv/archifiltre-mails/releases',
         ),
-    ])
-        .then(async ([docsData, mailsData]) => {
-            const docs = await docsData.json();
-            const mails = await mailsData.json();
+    ]).then(async ([docsResult, mailsResult]) => {
+        const ret = {} as ArchifiltreVersions;
+        if (docsResult.status === 'fulfilled') {
+            ret.docs = await docsResult.value.json();
+        } else {
+            ret.docs = `${ERROR_MSG} Docs`;
+        }
+        if (mailsResult.status === 'fulfilled') {
+            ret.mails = await mailsResult.value.json();
+        } else {
+            ret.mails = `${ERROR_MSG} Mails`;
+        }
 
-            storeSetter({
-                docs,
-                mails,
-            });
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};
+        return ret;
+    });
 
 export const detectOS = (): string => {
     let detectedOS = 'OS Inconnu';
