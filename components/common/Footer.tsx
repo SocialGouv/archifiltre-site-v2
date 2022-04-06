@@ -1,17 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
-/* eslint-disable react/no-unescaped-entities */
-const data = [
-    {
-        label: 'Mentions légales',
-        url: '/mentions-legales',
-    },
-    {
-        label: 'Politiques de confidentialité',
-        url: '/politiques-de-confidentialite',
-    },
-];
 export const Footer: React.FC = () => (
     <footer className="footer">
         <div className="footer__links">

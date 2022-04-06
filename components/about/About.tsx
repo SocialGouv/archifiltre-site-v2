@@ -20,10 +20,10 @@ type AboutSlicePrimary = {
 
 type AboutSliceItem = {
     image: ImageField;
-    name: KeyTextField;
-    surname: KeyTextField;
     job: KeyTextField;
     linkedin: FilledLinkToWebField;
+    name: KeyTextField;
+    surname: KeyTextField;
 };
 
 export type AboutSlice = SharedSlice<

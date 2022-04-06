@@ -1,10 +1,10 @@
 import { ButtonLink } from '../common/Button';
 
 interface HomeProductProps {
-    title: string;
-    subtitle: string;
-    linkToProduct: string;
     index: number;
+    linkToProduct: string;
+    subtitle: string;
+    title: string;
 }
 
 export const HomeProduct: React.FC<HomeProductProps> = ({

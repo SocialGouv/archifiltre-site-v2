@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import {
     ImageField,
     KeyTextField,
@@ -17,8 +16,8 @@ import { ArrowButtonPicto, PictoPng } from '../common/Picto';
 import { HomeProduct } from './HomeProduct';
 
 type HomeSliceItem = {
-    picto: ImageField;
     description: KeyTextField;
+    picto: ImageField;
 };
 
 type HomeSlicePrimary = {

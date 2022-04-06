@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 interface ButtonLinkProps {
+    className?: string;
     label: string;
     url: string;
-    className?: string;
 }
 interface ButtonCircleProps {
     onClick?: () => void;

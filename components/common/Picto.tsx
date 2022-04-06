@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 interface PictoPngProps {
-    src: string;
     alt: string;
+    src: string;
 }
 
 export const ArrowButtonPicto: React.FC = () => (

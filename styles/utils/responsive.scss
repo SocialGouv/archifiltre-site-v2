@@ -1,9 +1,8 @@
 /* stylelint-disable scss/at-import-no-partial-leading-underscore */
-$breakpoints: (
-  'phone': 428px,
-  'tablet': 1024px,
-  'desktop': 1920px,
+$breakpoints: ('phone': 428px,
+'tablet': 1024px,
+'desktop': 1920px,
 ) !default;
 
 /* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
-@import '../../node_modules/include-media/dist/_include-media.scss';
+@import '~include-media/dist/_include-media.scss';

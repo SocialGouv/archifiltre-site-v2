@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
+
 import { PrismicRichText } from '@prismicio/react';
 import {
     RichTextField,
@@ -24,9 +24,9 @@ import { Page } from '../common/Page';
 
 type DownloadSlicePrimary = {
     changelog: RichTextField;
-    title: KeyTextField;
     documentation: FilledLinkToWebField;
     key: SelectField<'docs' | 'mails'>;
+    title: KeyTextField;
 };
 
 export type DownloadSlice = SharedSlice<
@@ -41,8 +41,8 @@ export type DownloadProps = WithPrismicSlicedContent<DownloadSlice> & {
 export type DownloadPrismicDocument = SlicedPrismicDocument<DownloadSlice>;
 
 interface DownloadProdutItemProps {
-    slice: DownloadSlice;
     product?: ArchifiltreProductVersionInfo[number];
+    slice: DownloadSlice;
 }
 const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
     slice,

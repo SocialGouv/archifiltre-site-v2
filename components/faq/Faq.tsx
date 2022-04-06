@@ -16,13 +16,13 @@ import { Page } from '../common/Page';
 import { Separator } from '../common/Separator';
 
 export type FaqSliceItem = {
-    question: KeyTextField;
     answer: RichTextField;
+    question: KeyTextField;
 };
 
 export type FaqCustomFields = {
-    title: KeyTextField;
     subtitle: KeyTextField;
+    title: KeyTextField;
 };
 
 export type FaqSlice = SharedSlice<
