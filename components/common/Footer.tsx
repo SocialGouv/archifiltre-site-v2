@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const Footer: React.FC = () => (
@@ -41,13 +41,21 @@ export const Footer: React.FC = () => (
                 Fabrique des ministères sociaux
             </Link>
         </div>
-        <div className="footer__vercel">
+        <div
+            className="footer__vercel"
+            // TODO: position bottom
+        >
             <Link
                 href="https://vercel.com/?utm_source=archifiltre&utm_campaign=oss"
                 passHref
             >
                 <a target="_blank">
-                    <img src="/assets/vercel-powered.svg" alt="vercel-logo" />
+                    <Image
+                        src="/assets/vercel-powered.svg"
+                        alt="vercel-logo"
+                        width={212}
+                        height={44}
+                    />
                 </a>
             </Link>
         </div>

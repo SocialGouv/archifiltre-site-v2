@@ -67,6 +67,7 @@ export const About: React.FC<AboutProps> = ({ content }) => {
                             >
                                 <div className="about__section__people__item__avatar">
                                     <img
+                                        // TODO: PrismicImage
                                         src={item.image.url ?? ''}
                                         alt={item.image.alt ?? ''}
                                     />
