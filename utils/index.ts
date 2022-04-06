@@ -1,4 +1,7 @@
 import { Endpoints } from '@octokit/types';
+import { UAParser } from 'ua-parser-js';
+import { APP_IMAGE_EXTENSION, DMG_EXTENSION, EXE_EXTENSION } from './constant';
+
 export const HAS_WINDOW = typeof window !== 'undefined';
 
 export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
@@ -55,12 +58,18 @@ export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
         return ret;
     });
 
-export const detectOS = (): string => {
-    let detectedOS = 'OS Inconnu';
+export const getOSName = () => new UAParser().getOS().name;
 
-    if (navigator.appVersion.indexOf('Mac') != -1) detectedOS = 'MacOS';
-    if (navigator.appVersion.indexOf('Win') != -1) detectedOS = 'Windows';
-    if (navigator.appVersion.indexOf('Linux') != -1) detectedOS = 'Linux';
+export const getDownloadLink = (
+    product?: ArchifiltreProductVersionInfo[number],
+) => {
+    if (product) {
+        const os = getOSName();
+        const version = product.name?.substring(1);
+        const url = `https://github.com/SocialGouv/archifiltre-docs/releases/download/v${version}/archifiltre-${version}`;
 
-    return detectedOS;
+        if (os === 'Mac OS') return url + DMG_EXTENSION;
+        if (os === 'Linux') return url + APP_IMAGE_EXTENSION;
+        if (os?.startsWith('Windows')) return url + EXE_EXTENSION;
+    }
 };

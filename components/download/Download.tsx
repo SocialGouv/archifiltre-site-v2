@@ -14,6 +14,7 @@ import React from 'react';
 import {
     ArchifiltreProductVersionInfo,
     ArchifiltreVersions,
+    getDownloadLink,
 } from '../../utils';
 import {
     SlicedPrismicDocument,
@@ -51,23 +52,34 @@ const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
         <h3>
             {slice.primary.title}
             <span>
-                {product ? (
-                    product.name
-                ) : (
-                    <>
-                        <br />
-                        Pas de version stable disponible 😢
-                    </>
-                )}
+                {product ? product.name : 'Pas de version stable disponible 😢'}
             </span>
         </h3>
         <PrismicRichText field={slice.primary.changelog} />
-        <button className="btn-link">Télécharger {slice.primary.title}</button>
-        <Link href={slice.primary.documentation.url}>
-            <a className="btn-link documentation" target="_blank">
-                Documentation
-            </a>
-        </Link>
+
+        <div className="download__products__item__doc">
+            <button
+                className="btn-link"
+                onClick={() => window.open(getDownloadLink(product))}
+            >
+                Télécharger {slice.primary.title}
+            </button>
+            <Link href={slice.primary.documentation.url}>
+                <a className="btn-link documentation" target="_blank">
+                    Documentation
+                </a>
+            </Link>
+        </div>
+        {product && (
+            <Link href={product.html_url}>
+                <a
+                    className="underline download__products__item__other"
+                    href=""
+                >
+                    Besoin d'une autre version ?
+                </a>
+            </Link>
+        )}
     </div>
 );
 

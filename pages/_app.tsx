@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
 import { Layout } from '../components/common/Layout';
 import { Main } from '../components/common/Main';
@@ -11,6 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Main>
                 <Component {...pageProps} />
             </Main>
+            <Footer />
         </Layout>
     );
 };
