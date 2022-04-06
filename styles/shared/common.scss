@@ -42,3 +42,23 @@
     width: 100%;
   }
 }
+
+#construction {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0 0 2rem;
+  }
+
+  a {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+  }
+}
