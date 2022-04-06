@@ -13,10 +13,7 @@ export const ProductGeneral: React.FC<{
             {product.map((productInfo, index) => (
                 <div className="product__general__item" key={index}>
                     <div className="product__general__item__title">
-                        <PictoPng
-                            src={productInfo.primary.picto.url ?? ''}
-                            alt={productInfo.primary.picto.alt ?? ''}
-                        />
+                        <PictoPng image={productInfo.primary.picto} />
                         {productInfo.primary.title}
                     </div>
 

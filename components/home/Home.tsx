@@ -75,12 +75,7 @@ export const Home: React.FC<HomeProps> = ({ content }) => {
                     <ul>
                         {slice.items.map((item, index) => (
                             <li key={index}>
-                                {item.picto.url && item.picto.alt && (
-                                    <PictoPng
-                                        src={item.picto.url}
-                                        alt={item.picto.alt}
-                                    />
-                                )}
+                                <PictoPng image={item.picto} />
                                 {item.description}
                             </li>
                         ))}

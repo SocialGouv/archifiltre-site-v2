@@ -2,6 +2,7 @@
   display: flex;
 
   &#page {
+    height: 100vh;
     margin: 0 10rem;
   }
 
@@ -50,8 +51,10 @@
   }
 
   &__general {
+    height: 100vh;
     left: 50rem;
     opacity: 1;
+    pointer-events: none;
     position: absolute;
     width: 55%;
 
@@ -92,8 +95,10 @@
   }
 
   &__versions {
+    height: 100vh;
     left: 50rem;
     opacity: 0;
+    pointer-events: none;
     position: absolute;
     width: 55%;
 

@@ -1,7 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
+import { ImageField } from '@prismicio/types';
+import { PrismicImage } from './prismic/Image';
+
 interface PictoPngProps {
-    alt: string;
-    src: string;
+    image: ImageField;
 }
 
 export const ArrowButtonPicto: React.FC = () => (
@@ -13,9 +14,8 @@ export const ArrowButtonPicto: React.FC = () => (
     </svg>
 );
 
-// TODO: Switch with next-image + handle prismic element (with null/undefined values)
-export const PictoPng: React.FC<PictoPngProps> = ({ src, alt }) => (
+export const PictoPng: React.FC<PictoPngProps> = ({ image }) => (
     <div className="picto">
-        <img src={src} alt={alt} />
+        <PrismicImage image={image} width={20} height={20} />
     </div>
 );

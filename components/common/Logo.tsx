@@ -1,9 +1,27 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
-export const Logo: React.FC = () => (
-    <div id="logo">
-        <Link href="/">
-            <a>Archifiltre</a>
-        </Link>
-    </div>
-);
+const IMG_RATIO = 13;
+export const Logo: React.FC = () => {
+    const { width } = useWindowSize();
+
+    if (!width) {
+        return null;
+    }
+    const imgSize = width / IMG_RATIO;
+    return (
+        <div id="logo">
+            <Link href="/">
+                <a>
+                    <Image
+                        src={'/assets/team_logo.png'}
+                        alt="Team logo"
+                        width={imgSize}
+                        height={imgSize}
+                    />
+                </a>
+            </Link>
+        </div>
+    );
+};
