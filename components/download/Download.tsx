@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import { PrismicRichText } from '@prismicio/react';
 import {
     RichTextField,
     KeyTextField,
@@ -9,18 +8,14 @@ import {
     FilledLinkToWebField,
     SelectField,
 } from '@prismicio/types';
-import Link from 'next/link';
 import React from 'react';
-import {
-    ArchifiltreProductVersionInfo,
-    ArchifiltreVersions,
-    getDownloadLink,
-} from '../../utils';
+import { ArchifiltreVersions } from '../../utils';
 import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,
 } from '../../utils/prismic/types';
 import { Page } from '../common/Page';
+import { DownloadProductItem } from './DownloadProdutItemProps';
 
 type DownloadSlicePrimary = {
     changelog: RichTextField;
@@ -39,49 +34,6 @@ export type DownloadProps = WithPrismicSlicedContent<DownloadSlice> & {
 };
 
 export type DownloadPrismicDocument = SlicedPrismicDocument<DownloadSlice>;
-
-interface DownloadProdutItemProps {
-    product?: ArchifiltreProductVersionInfo[number];
-    slice: DownloadSlice;
-}
-const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
-    slice,
-    product,
-}) => (
-    <div className="download__products__item">
-        <h3>
-            {slice.primary.title}
-            <span>
-                {product ? product.name : 'Pas de version stable disponible 😢'}
-            </span>
-        </h3>
-        <PrismicRichText field={slice.primary.changelog} />
-
-        <div className="download__products__item__doc">
-            <button
-                className="btn-link"
-                onClick={() => window.open(getDownloadLink(product))}
-            >
-                Télécharger {slice.primary.title}
-            </button>
-            <Link href={slice.primary.documentation.url}>
-                <a className="btn-link documentation" target="_blank">
-                    Documentation
-                </a>
-            </Link>
-        </div>
-        {product && (
-            <Link href={product.html_url}>
-                <a
-                    className="underline download__products__item__other"
-                    href=""
-                >
-                    Besoin d'une autre version ?
-                </a>
-            </Link>
-        )}
-    </div>
-);
 
 export const Download: React.FC<DownloadProps> = ({
     content,

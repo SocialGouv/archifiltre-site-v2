@@ -10,7 +10,7 @@ export const ProductSidebar: React.FC<{ title: string | null }> = ({
     const timeline = useRef(gsap.timeline());
     const [panel, setPanel] = useState<PanelProps>('produit');
     const { pathname } = useRouter();
-    const isDocs = pathname === '/docs';
+    const isDocs = pathname === DOCS_SLUG;
 
     const switchPanel = () => {
         const inactive = panel === 'produit' ? 'versions' : 'produit';

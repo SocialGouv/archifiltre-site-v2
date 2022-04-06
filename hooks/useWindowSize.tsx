@@ -3,10 +3,10 @@ import { MOBILE_WIDTH } from '../utils/constant';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayout';
 
 interface UseWindowSizeInterface {
-    width?: number;
+    center?: number;
     height?: number;
     isMobile?: boolean;
-    center?: number;
+    width?: number;
 }
 
 export const useWindowSize = () => {

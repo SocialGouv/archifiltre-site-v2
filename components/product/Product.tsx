@@ -7,6 +7,7 @@ import {
 } from '@prismicio/types';
 import { useRouter } from 'next/router';
 import { ArchifiltreVersions } from '../../utils';
+import { DOCS_SLUG } from '../../utils/constant';
 import {
     SlicedAndCustomPrismicDocument,
     WithPrismicSlicedAndCustomContent,
@@ -50,7 +51,7 @@ export const Product: React.FC<ProductProps> = ({
     const { pathname } = useRouter();
 
     const { title, slices: product } = content.data;
-    const isDocs = pathname === '/docs';
+    const isDocs = pathname === DOCS_SLUG;
 
     const versions = isDocs ? productVersions.docs : productVersions.mails;
 

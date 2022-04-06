@@ -7,6 +7,7 @@ import {
 import gsap from 'gsap';
 import { useRouter } from 'next/router';
 import { useLayoutEffect, useRef, useState } from 'react';
+import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,
@@ -39,7 +40,7 @@ export const Home: React.FC<HomeProps> = ({ content }) => {
     const productContent = useRef<Element[]>([]);
     const [index, setIndex] = useState(0);
     const { pathname } = useRouter();
-    const isDocs = pathname === '/docs';
+    const isDocs = pathname === DOCS_SLUG;
 
     useLayoutEffect(() => {
         productContent.current = gsap.utils.toArray(
@@ -67,7 +68,7 @@ export const Home: React.FC<HomeProps> = ({ content }) => {
                     index={index}
                     title={slice.primary.title ?? ''}
                     subtitle={slice.primary.subtitle ?? ''}
-                    linkToProduct={isDocs ? '/mails' : '/docs'}
+                    linkToProduct={isDocs ? MAILS_SLUG : DOCS_SLUG}
                     key={index}
                 >
                     <ul>

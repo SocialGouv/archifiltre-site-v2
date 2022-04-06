@@ -13,6 +13,7 @@ export const ArrowButtonPicto: React.FC = () => (
     </svg>
 );
 
+// TODO: Switch with next-image + handle prismic element (with null/undefined values)
 export const PictoPng: React.FC<PictoPngProps> = ({ src, alt }) => (
     <div className="picto">
         <img src={src} alt={alt} />

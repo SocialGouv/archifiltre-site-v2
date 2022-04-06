@@ -16,6 +16,7 @@ export const Footer: React.FC = () => (
                 <li>
                     <Link href="/mentions-legales">
                         <a
+                            // TODO: env or Prismic
                             href="https://github.com/SocialGouv/archifiltre-docs/wiki/Wiki-Archifiltre"
                             target="_blank"
                             rel="noreferrer"

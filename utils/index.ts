@@ -7,26 +7,26 @@ export const HAS_WINDOW = typeof window !== 'undefined';
 export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
 
 /**
- * 
+ *
     Short of querySelector method.
  */
 export const qs = (className: string) => document.querySelector(className);
 /**
- * 
+ *
     Short of querySelectorAll method.
  */
 export const qsa = (className: string) => document.querySelectorAll(className);
 
+// TODO: n products
 export type ArchifiltreProductVersionInfo =
     Endpoints['GET /repos/{owner}/{repo}/releases']['response']['data'];
 export type ArchifiltreVersions = {
-    mails: ArchifiltreProductVersionInfo | string;
     docs: ArchifiltreProductVersionInfo | string;
+    mails: ArchifiltreProductVersionInfo | string;
 };
 
 /**
- * 
-   Check if item index is active
+ * Check if item index is active
  */
 export const isIndexActive = (
     activeIndex: number,
