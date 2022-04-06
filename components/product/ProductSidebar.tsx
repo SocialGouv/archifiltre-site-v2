@@ -1,3 +1,4 @@
+import gsap from 'gsap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';

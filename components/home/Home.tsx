@@ -6,7 +6,8 @@ import {
 } from '@prismicio/types';
 import gsap from 'gsap';
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
 import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 import {
     SlicedPrismicDocument,
@@ -42,7 +43,7 @@ export const Home: React.FC<HomeProps> = ({ content }) => {
     const { pathname } = useRouter();
     const isDocs = pathname === DOCS_SLUG;
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         productContent.current = gsap.utils.toArray(
             '.home__product',
         ) as Element[];
