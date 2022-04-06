@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 
 export const UnderConstruction: React.FC = () => {
     return (
@@ -7,10 +8,10 @@ export const UnderConstruction: React.FC = () => {
             <Link href={'/'}>
                 <a>Homepage</a>
             </Link>
-            <Link href={'/docs'}>
+            <Link href={DOCS_SLUG}>
                 <a>Docs</a>
             </Link>
-            <Link href={'/mails'}>
+            <Link href={MAILS_SLUG}>
                 <a>Mails</a>
             </Link>
         </div>
