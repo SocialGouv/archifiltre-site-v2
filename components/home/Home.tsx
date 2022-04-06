@@ -12,9 +12,9 @@ import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,
 } from '../../utils/prismic/types';
-import { ButtonLink } from '../common/Button';
 import { Page } from '../common/Page';
 import { ArrowButtonPicto, PictoPng } from '../common/Picto';
+import { HomeProduct } from './HomeProduct';
 
 type HomeSliceItem = {
     picto: ImageField;
@@ -30,30 +30,6 @@ export type HomeSlice = SharedSlice<
     string,
     SharedSliceVariation<string, HomeSlicePrimary, HomeSliceItem>
 >;
-
-interface HomeProductProps {
-    title: string;
-    subtitle: string;
-    linkToProduct: string;
-    index: number;
-}
-
-export const HomeProduct: React.FC<HomeProductProps> = ({
-    title,
-    subtitle,
-    linkToProduct,
-    children,
-    index,
-}) => (
-    <div className="home__product" data-index={index}>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        {children}
-        <div className="home__product__discover">
-            <ButtonLink url={linkToProduct} label="découvrir" />
-        </div>
-    </div>
-);
 
 export type HomeProps = WithPrismicSlicedContent<HomeSlice>;
 export type HomePrismicDocument = SlicedPrismicDocument<HomeSlice>;
