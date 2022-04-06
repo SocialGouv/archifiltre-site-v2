@@ -1,0 +1,41 @@
+{
+  "id": "docs",
+  "label": "Docs",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "config": {
+          "label": "Titre",
+          "placeholder": "Docs"
+        },
+        "type": "Text"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "product_definition": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "versions": {
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "product_versions": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

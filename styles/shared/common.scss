@@ -1,0 +1,44 @@
+/* stylelint-disable no-descending-specificity */
+.separator {
+  background: var(--text);
+  height: 0.1px;
+  width: 100%;
+}
+
+.underline {
+  position: relative;
+
+  &.light {
+    &::after {
+      height: 1px;
+    }
+  }
+
+  &::after {
+    background-color: var(--text);
+    bottom: -2px;
+    content: '';
+    height: 0.1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+    width: 100%;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+.picto {
+  display: inline-block;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

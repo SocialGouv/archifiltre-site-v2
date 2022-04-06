@@ -1,0 +1,35 @@
+{
+  "id": "faq",
+  "label": "FAQ",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "config": {
+          "label": "Titre",
+          "placeholder": "Questions fréquentes"
+        },
+        "type": "Text"
+      },
+      "subtitle": {
+        "config": {
+          "label": "Sous Titre",
+          "placeholder": "Vous avez des questions ? ..."
+        },
+        "type": "Text"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "faq_qa": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

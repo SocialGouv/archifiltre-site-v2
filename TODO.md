@@ -1,0 +1,2 @@
+- [ ] switch sur CSSModules
+- [ ] i18n

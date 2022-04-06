@@ -1,0 +1,39 @@
+#header {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  height: 15rem;
+  justify-content: space-between;
+  padding: 0 $base-margin;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+
+  #logo {
+    flex: 1;
+  }
+
+  nav {
+    @extend %description-18;
+
+    flex: 1;
+    min-width: 72.5rem;
+    text-align: center;
+
+    a {
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  .header__button {
+    display: flex;
+    flex: 1;
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    a {
+      margin-left: auto;
+    }
+  }
+}

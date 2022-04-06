@@ -1,0 +1,27 @@
+.footer {
+  font-size: 1.5rem;
+  padding: 5rem 50rem;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 5rem;
+  }
+
+  &__credits {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 5rem;
+
+    a {
+      margin-left: 1rem;
+    }
+  }
+
+  &__vercel {
+    cursor: pointer;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}

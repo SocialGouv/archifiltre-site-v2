@@ -1,0 +1,48 @@
+{
+  "id": "home_product",
+  "type": "SharedSlice",
+  "name": "HomeProduct",
+  "description": "HomeProduct",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "HomeProduct",
+      "primary": {
+        "title": {
+          "config": {
+            "label": "Titre",
+            "placeholder": "Titre"
+          },
+          "type": "Text"
+        },
+        "subtitle": {
+          "config": {
+            "label": "Sous-titre",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      },
+      "items": {
+        "picto": {
+          "config": {
+            "label": "Picto",
+            "constraint": {},
+            "thumbnails": []
+          },
+          "type": "Image"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      }
+    }
+  ]
+}
