@@ -12,9 +12,6 @@
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
   },
-  "engines": {
-    "node": ">=17"
-  },
   "devDependencies": {
     "@octokit/types": "^6.34.0",
     "@prismicio/types": "^0.1.27",
