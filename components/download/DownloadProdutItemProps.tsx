@@ -38,7 +38,7 @@ export const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
             <Link href={product.html_url}>
                 <a
                     className="underline download__products__item__other"
-                    href=""
+                    target="_blank"
                 >
                     Besoin d&apos;une autre version ?
                 </a>
