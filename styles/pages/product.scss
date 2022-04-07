@@ -120,6 +120,7 @@
       &__wrapper {
         height: 60vh;
         overflow: scroll;
+        pointer-events: all;
       }
 
       &__title {
