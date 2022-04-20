@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import {
     Product,
     ProductPrismicDocument,
@@ -15,7 +16,15 @@ const ProductPage: NextPage<MailsPageProps> = ({
     productVersions,
 }) => {
     if (!content || !productVersions) return null;
-    return <Product content={content} productVersions={productVersions} />;
+    return (
+        <>
+            <NextSeo
+                title="Produit - Mails"
+                description="Visualisez, appréhendez et améliorez vos arborescences de fichiers et de messageries !"
+            />
+            <Product content={content} productVersions={productVersions} />;
+        </>
+    );
 };
 
 export const getStaticProps: GetStaticProps<MailsPageProps> = async () => {

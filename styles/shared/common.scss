@@ -62,3 +62,29 @@
     margin: 0 0 1rem;
   }
 }
+
+#error {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+
+  h1 {
+    font-size: 20rem;
+  }
+
+  p {
+    font-size: 4rem;
+    margin: 4rem 0;
+  }
+
+  ul {
+    font-size: 2rem;
+    text-align: center;
+
+    li {
+      margin: 0 0 1rem;
+    }
+  }
+}

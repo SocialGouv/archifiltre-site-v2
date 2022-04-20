@@ -12,8 +12,9 @@
     width: 40rem;
 
     &__title {
-      @extend %description-70-m;
-
+      font-family: Inter;
+      font-size: 4rem;
+      font-weight: 600;
       height: 6.25rem;
       margin: 0 0 5rem;
     }
@@ -59,10 +60,10 @@
     width: 55%;
 
     &__title {
-      @extend %description-40-m;
-
       display: flex;
-      height: 6.25rem;
+      font-family: Inter;
+      font-size: 3rem;
+      height: 3.8rem;
       margin: 0 0 5rem;
 
       span {
@@ -78,6 +79,7 @@
 
         align-items: center;
         display: flex;
+        font-family: Inter;
         margin: 0 0 2rem;
 
         img {
@@ -106,6 +108,7 @@
       @extend %description-40-m;
 
       display: flex;
+      font-family: Inter;
       height: 6.25rem;
       margin: 0 0 5rem;
 
@@ -127,6 +130,7 @@
         @extend %description-30-m;
 
         display: flex;
+        font-family: Inter;
         justify-content: space-between;
         margin: 0 0 1rem;
       }

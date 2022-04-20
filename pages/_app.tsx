@@ -10,6 +10,57 @@ const App = ({ Component, pageProps }: AppProps) => {
     return (
         <Layout>
             <DefaultSeo
+                canonical="https://archifiltre.fr"
+                titleTemplate="%s | Suite Archifiltre"
+                defaultTitle="Suite Archifiltre"
+                additionalLinkTags={[
+                    {
+                        rel: 'icon',
+                        href: 'https://archifiltre.fr/favicon.ico',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Quicksand-Bold.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Quicksand-Light.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Quicksand-Medium.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Inter-Bold.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Inter-Light.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                    {
+                        rel: 'preload',
+                        href: 'https://archifiltre.fr/assets/fonts/Inter-Medium.ttf',
+                        as: 'font',
+                        type: 'font/ttf',
+                        crossOrigin: 'anonymous',
+                    },
+                ]}
                 openGraph={{
                     title: 'Suite Archifitre',
                     type: 'website',
@@ -29,13 +80,11 @@ const App = ({ Component, pageProps }: AppProps) => {
                         },
                     ],
                 }}
-                title="Suite Archifiltre"
-                additionalLinkTags={[
-                    {
-                        rel: 'icon',
-                        href: '/favicon.ico',
-                    },
-                ]}
+                twitter={{
+                    handle: '@archifiltre',
+                    site: '@archifiltre',
+                    cardType: 'summary_large_image',
+                }}
             />
             <Header />
             <Main>

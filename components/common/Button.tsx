@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
 interface ButtonLinkProps {
     className?: string;
@@ -6,6 +7,7 @@ interface ButtonLinkProps {
     url: string;
 }
 interface ButtonCircleProps {
+    children: ReactNode;
     onClick?: () => void;
 }
 

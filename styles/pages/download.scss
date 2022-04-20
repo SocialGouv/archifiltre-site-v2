@@ -13,6 +13,7 @@
   h1 {
     @extend %description-75-m;
 
+    font-family: Inter;
     margin: 0 0 5rem;
   }
 
@@ -28,7 +29,10 @@
     justify-content: space-between;
 
     &__item {
+      width: calc(50% - 2.5rem);
+
       h3 {
+        font-family: Inter;
         font-size: 4rem;
         font-weight: 600;
         margin: 0 0 4rem;
@@ -58,6 +62,9 @@
       }
 
       &__doc {
+        margin: 0 auto;
+        width: fit-content;
+
         button,
         a {
           background: #026fecee;

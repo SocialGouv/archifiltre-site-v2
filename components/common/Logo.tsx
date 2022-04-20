@@ -15,6 +15,7 @@ export const Logo: React.FC = () => {
             <Link href="/">
                 <a>
                     <Image
+                        priority
                         src={'/assets/team_logo.png'}
                         alt="Team logo"
                         width={imgSize}
