@@ -14,7 +14,7 @@ export const Legals: React.FC = () => (
         <p>75015 PARIS</p>
         <p>Tél : 01 40 56 60 00</p>
         <h2 id="directeur-de-la-publication">Directeur de la publication</h2>
-        <p>Hélène Brisset, Directrice du Numérique</p>
+        <p>Anne Jeanjean, Directrice du Numérique</p>
         <h2 id="hébergement-de-la-plateforme">Hébergement de la plateforme</h2>
         <p>Ce site est hébergé par :</p>
         <p>Microsoft France</p>

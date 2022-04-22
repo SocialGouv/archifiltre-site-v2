@@ -1,3 +1,5 @@
+import { ARCHIFILTRE_MAIL_ADDRESS } from '../../utils/constant';
+
 /* eslint-disable react/no-unescaped-entities */
 export const Policy: React.FC = () => (
     <div className="legals">
@@ -145,7 +147,7 @@ export const Policy: React.FC = () => (
             </p>
             <p>
                 Par voie électronique à l’adresse suivante :{' '}
-                <a href="mailto:archifiltre@sg.social.gouv.fr">
+                <a href={`mailto:${ARCHIFILTRE_MAIL_ADDRESS}`}>
                     archifiltre@sg.social.gouv.fr
                 </a>
             </p>

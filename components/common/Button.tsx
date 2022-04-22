@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
 interface ButtonLinkProps {
     className?: string;
     label: string;
     url: string;
 }
-interface ButtonCircleProps {
-    children: ReactNode;
+
+interface _ButtonCircleProps {
     onClick?: () => void;
 }
+
+type ButtonCircleProps = PropsWithChildren<_ButtonCircleProps>;
 
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
     label,
