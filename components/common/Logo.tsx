@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 const IMG_RATIO = 13;
-export const Logo: React.FC = () => {
+export const Logo = () => {
     const { width } = useWindowSize();
 
     if (!width) {

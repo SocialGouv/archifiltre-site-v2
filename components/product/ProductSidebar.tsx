@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import { DOCS, DOCS_SLUG, MAILS, MAILS_SLUG } from '../../utils/constant';
-type PanelProps = 'produit' | 'versions';
 
-export const ProductSidebar: React.FC<{ title: string | null }> = ({
-    title,
-}) => {
+type PanelProps = 'produit' | 'versions';
+interface ProductSidebarProps {
+    title: string | null;
+}
+
+export const ProductSidebar = ({ title }: ProductSidebarProps) => {
     const timeline = useRef(gsap.timeline());
     const [panel, setPanel] = useState<PanelProps>('produit');
     const { pathname } = useRouter();

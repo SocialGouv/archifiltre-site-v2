@@ -1,7 +1,7 @@
 import { ARCHIFILTRE_MAIL_ADDRESS } from '../../utils/constant';
 
 /* eslint-disable react/no-unescaped-entities */
-export const Policy: React.FC = () => (
+export const Policy = () => (
     <div className="legals">
         <main className="jss3">
             <h1>Politique de confidentialité</h1>

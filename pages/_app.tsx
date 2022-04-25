@@ -1,10 +1,15 @@
+import { PrismicPreview } from '@prismicio/next';
+import { PrismicProvider } from '@prismicio/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import Link from 'next/link';
 import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
 import { Layout } from '../components/common/Layout';
 import { Main } from '../components/common/Main';
+import { repositoryName } from '../prismicConfiguration';
 import '../styles/index.scss';
+import { linkResolver } from '../utils/prismic/helpers';
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (
@@ -87,9 +92,20 @@ const App = ({ Component, pageProps }: AppProps) => {
                 }}
             />
             <Header />
-            <Main>
-                <Component {...pageProps} />
-            </Main>
+            <PrismicProvider
+                linkResolver={linkResolver}
+                internalLinkComponent={({ href, children, ...props }) => (
+                    <Link href={href}>
+                        <a {...props}>{children}</a>
+                    </Link>
+                )}
+            >
+                <PrismicPreview repositoryName={repositoryName}>
+                    <Main>
+                        <Component {...pageProps} />
+                    </Main>
+                </PrismicPreview>
+            </PrismicProvider>
             <Footer />
         </Layout>
     );

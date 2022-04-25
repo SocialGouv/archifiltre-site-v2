@@ -46,11 +46,17 @@ export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
         const ret = {} as ArchifiltreVersions;
         if (docsResult.status === 'fulfilled') {
             ret.docs = await docsResult.value.json();
+            if (typeof ret.docs === 'string' || !ret.docs.length) {
+                ret.docs = `${ERROR_MSG} Docs`;
+            }
         } else {
             ret.docs = `${ERROR_MSG} Docs`;
         }
         if (mailsResult.status === 'fulfilled') {
             ret.mails = await mailsResult.value.json();
+            if (typeof ret.mails === 'string' || !ret.mails.length) {
+                ret.mails = `${ERROR_MSG} Mails`;
+            }
         } else {
             ret.mails = `${ERROR_MSG} Mails`;
         }
@@ -66,7 +72,10 @@ export const getDownloadLink = (
     if (product) {
         const os = getOSName();
         const version = product.name?.substring(1);
-        const url = `https://github.com/SocialGouv/archifiltre-docs/releases/download/v${version}/archifiltre-${version}`;
+        const name = product.url.includes('archifiltre-docs')
+            ? 'docs'
+            : 'mails';
+        const url = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}-${version}`;
 
         if (os === 'Mac OS') return url + DMG_EXTENSION;
         if (os === 'Linux') return url + APP_IMAGE_EXTENSION;

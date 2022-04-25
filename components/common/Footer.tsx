@@ -1,34 +1,43 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const Footer: React.FC = () => (
+export const Footer = () => (
     <footer className="footer">
         <div className="footer__links">
             <ul>
                 <li>
-                    <Link href="/mentions-legales">Mentions Légales</Link>
+                    <Link href="/mentions-legales">
+                        <a className="underline">Mentions Légales</a>
+                    </Link>
                 </li>
                 <li>
                     <Link href="/politiques-de-confidentialite">
-                        Politiques de confidentialité
+                        <a className="underline">
+                            Politiques de confidentialité
+                        </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/mentions-legales">
+                    <Link href="https://github.com/SocialGouv/archifiltre-docs/wiki/Wiki-Archifiltre">
                         <a
-                            // TODO: env or Prismic
-                            href="https://github.com/SocialGouv/archifiltre-docs/wiki/Wiki-Archifiltre"
+                            className="underline"
                             target="_blank"
                             rel="noreferrer"
-                        ></a>
+                        >
+                            Github
+                        </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/mentions-legales">Donnez votre avis</Link>
+                    <Link href="https://form.typeform.com/to/lTwzr0dP">
+                        <a className="underline" target="_blank">
+                            Donnez votre avis
+                        </a>
+                    </Link>
                 </li>
                 <li>
-                    <Link href="/mentions-legales">
-                        <a href="mailto:archifiltre@sg.social.gouv.fr">
+                    <Link href="mailto:contact@archifiltre.fr">
+                        <a className="underline" target="_blank">
                             Nous contacter
                         </a>
                     </Link>
@@ -36,9 +45,9 @@ export const Footer: React.FC = () => (
             </ul>
         </div>
         <div className="footer__credits">
-            © 2022 Archifiltre
-            <Link href={'https://www.fabrique.social.gouv.fr/'}>
-                Fabrique des ministères sociaux
+            © {new Date().getFullYear()} Archifiltre
+            <Link href="https://www.fabrique.social.gouv.fr/">
+                <a className="underline">Fabrique des ministères sociaux</a>
             </Link>
         </div>
         <div

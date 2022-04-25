@@ -12,7 +12,7 @@
   h1 {
     @extend %description-75-m;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     margin: 0 0 5rem;
   }
 
@@ -29,7 +29,7 @@
     &__title {
       @extend %description-35-m;
 
-      font-family: Inter;
+      font-family: Inter, sans-serif;
       margin: 0 0 6rem;
       text-align: center;
     }
@@ -48,11 +48,12 @@
         width: 20%;
 
         &__avatar {
-          border-radius: 50%;
           margin: 0 0 2.5rem;
           overflow: hidden;
 
           img {
+            border-radius: 50%;
+            height: 100%;
             width: 100%;
           }
         }

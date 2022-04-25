@@ -2,9 +2,11 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { ArchifiltreProductVersionInfo } from '../../utils';
 
-export const ProductVersion: React.FC<{
+interface ProductVersionProps {
     versions: string | ArchifiltreProductVersionInfo[number][];
-}> = ({ versions }) => (
+}
+
+export const ProductVersion = ({ versions }: ProductVersionProps) => (
     <div className="product__versions" data-panel="versions">
         <div className="product__versions__title">
             <span>Versions</span>
@@ -18,12 +20,15 @@ export const ProductVersion: React.FC<{
                               <span>{version.name}</span>
                           </div>
                           <div className="product__versions__item__date">
-                              {version.published_at}
+                              {version.published_at &&
+                                  new Date(
+                                      version.published_at,
+                                  ).toLocaleDateString()}
                           </div>
                           <div className="product__versions__item__changelog">
-                              <ReactMarkdown>
-                                  {version.body ?? ''}
-                              </ReactMarkdown>
+                              {version.body && (
+                                  <ReactMarkdown>{version.body}</ReactMarkdown>
+                              )}
                           </div>
                           <Link href={version.html_url}>
                               <a

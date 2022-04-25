@@ -13,4 +13,11 @@ export type Any = any;
 
 export type SimpleObject = Record<string, Any>;
 
+/**
+ * @deprecated React.FC should not be used anymore. You should directly type your props.
+ */
 export type FCWithChildren<P = {}> = React.FC<PropsWithChildren<P>>;
+
+export interface WithChildrenProps {
+    children?: PropsWithChildren<ThisType<this>>['children'];
+}

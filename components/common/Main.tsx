@@ -1,5 +1,5 @@
-import { FCWithChildren } from '../../utils/types';
+import { WithChildrenProps } from '../../utils/types';
 
-export const Main: FCWithChildren = ({ children }) => {
+export const Main = ({ children }: WithChildrenProps) => {
     return <main id="app">{children}</main>;
 };

@@ -1,5 +1,5 @@
-import { FCWithChildren } from '../../utils/types';
+import { WithChildrenProps } from '../../utils/types';
 
-export const Layout: FCWithChildren = ({ children }) => {
+export const Layout = ({ children }: WithChildrenProps) => {
     return <>{children}</>;
 };

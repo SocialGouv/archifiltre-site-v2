@@ -1,4 +1,4 @@
-export const Legals: React.FC = () => (
+export const Legals = () => (
     <div className="legals">
         <h1>Mentions légales</h1>
         <h2 id="editeur-de-la-plateforme">Editeur de la plateforme</h2>
