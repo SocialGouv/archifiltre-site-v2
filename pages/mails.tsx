@@ -27,9 +27,11 @@ const ProductPage: NextPage<MailsPageProps> = ({
     );
 };
 
-export const getStaticProps: GetStaticProps<MailsPageProps> = async () => {
+export const getStaticProps: GetStaticProps<MailsPageProps> = async ({
+    previewData,
+}) => {
     const [content, productVersions] = await Promise.all([
-        Client().getSingle<ProductPrismicDocument>(MAILS),
+        Client({ previewData }).getSingle<ProductPrismicDocument>(MAILS),
         getVersionsFromGH(),
     ]);
 

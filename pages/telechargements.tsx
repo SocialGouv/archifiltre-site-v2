@@ -28,9 +28,11 @@ const DownloadPage: NextPage<DownloadPageProps> = ({
     );
 };
 
-export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {
+export const getStaticProps: GetStaticProps<DownloadPageProps> = async ({
+    previewData,
+}) => {
     const [content, productVersions] = await Promise.all([
-        Client().getSingle<DownloadPrismicDocument>(DOWNLOAD),
+        Client({ previewData }).getSingle<DownloadPrismicDocument>(DOWNLOAD),
         getVersionsFromGH(),
     ]);
 

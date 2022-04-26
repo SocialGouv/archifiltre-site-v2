@@ -22,8 +22,12 @@ const AboutPage: NextPage<AboutProps> = ({ content }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps<AboutProps> = async () => {
-    const content = await Client().getSingle<AboutPrismicDocument>(ABOUT_US);
+export const getStaticProps: GetStaticProps<AboutProps> = async ({
+    previewData,
+}) => {
+    const content = await Client({
+        previewData,
+    }).getSingle<AboutPrismicDocument>(ABOUT_US);
 
     return {
         props: {

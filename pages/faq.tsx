@@ -18,8 +18,12 @@ const FaqPage: NextPage<FaqPageProps> = ({ content }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps<FaqPageProps> = async () => {
-    const content = await Client().getSingle<FaqPrismicDocument>(FAQ);
+export const getStaticProps: GetStaticProps<FaqPageProps> = async ({
+    previewData,
+}) => {
+    const content = await Client({ previewData }).getSingle<FaqPrismicDocument>(
+        FAQ,
+    );
 
     return {
         props: {
