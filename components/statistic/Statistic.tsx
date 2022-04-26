@@ -1,6 +1,6 @@
 import { Page } from '../common/Page';
 
-export const Statistic: React.FC = () => (
+export const Statistic = () => (
     <Page className="statistics">
         <iframe
             width="100%"

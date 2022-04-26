@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import { PrismicLink, PrismicRichText } from '@prismicio/react';
 import {
     FilledLinkToWebField,
     ImageField,
@@ -7,12 +7,12 @@ import {
     SharedSlice,
     SharedSliceVariation,
 } from '@prismicio/types';
-import Link from 'next/link';
 import {
     SlicedAndCustomPrismicDocument,
     WithPrismicSlicedAndCustomContent,
 } from '../../utils/prismic/types';
 import { Page } from '../common/Page';
+import { NextPrismicImage } from '../common/prismic/Image';
 
 type AboutSlicePrimary = {
     title: KeyTextField;
@@ -46,13 +46,15 @@ export type AboutPrismicDocument = SlicedAndCustomPrismicDocument<
     AboutCustomFields
 >;
 
-export const About: React.FC<AboutProps> = ({ content }) => {
+export const About = ({ content }: AboutProps) => {
     const { title, description, slices } = content.data;
 
     return (
         <Page className="about">
             <h1>{title}</h1>
-            <h2>{description}</h2>
+            <h2>
+                <PrismicRichText field={description} />
+            </h2>
 
             {slices.map((slice, index) => (
                 <div className="about__section" key={index}>
@@ -66,11 +68,7 @@ export const About: React.FC<AboutProps> = ({ content }) => {
                                 key={index}
                             >
                                 <div className="about__section__people__item__avatar">
-                                    <img
-                                        // TODO: PrismicImage
-                                        src={item.image.url ?? ''}
-                                        alt={item.image.alt ?? ''}
-                                    />
+                                    <NextPrismicImage field={item.image} />
                                 </div>
                                 <div className="about__section__people__item__name">
                                     {item.name}
@@ -81,11 +79,12 @@ export const About: React.FC<AboutProps> = ({ content }) => {
                                 <div className="about__section__people__item__job">
                                     {item.job}
                                 </div>
-                                <Link href={item.linkedin.url || ''}>
-                                    <a className="about__section__people__item__linkedin underline">
-                                        Linkedin
-                                    </a>
-                                </Link>
+                                <PrismicLink
+                                    className="about__section__people__item__linkedin underline"
+                                    field={item.linkedin}
+                                >
+                                    Linkedin
+                                </PrismicLink>
                             </div>
                         ))}
                     </div>

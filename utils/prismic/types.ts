@@ -37,7 +37,7 @@ export type SlicedAndCustomPrismicDocument<
 
 export interface PrismicRouter {
     routes: {
-        type: string;
         path: string;
+        type: string;
     }[];
 }

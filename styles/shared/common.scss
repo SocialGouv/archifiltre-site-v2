@@ -62,3 +62,59 @@
     margin: 0 0 1rem;
   }
 }
+
+#error {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+
+  h1 {
+    font-size: 20rem;
+  }
+
+  p {
+    font-size: 4rem;
+    margin: 4rem 0;
+  }
+
+  ul {
+    font-size: 2rem;
+    text-align: center;
+
+    li {
+      margin: 0 0 1rem;
+    }
+  }
+}
+
+.legals {
+  padding: 20rem;
+
+  h1,
+  h2 {
+    font-family: $font-inter;
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin: 0 0 5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 5rem 0 2rem;
+  }
+
+  h3 {
+    padding: 3rem;
+    padding-left: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 0 0 2rem;
+    padding-left: 2rem;
+  }
+}

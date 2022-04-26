@@ -2,9 +2,11 @@ import { PrismicRichText } from '@prismicio/react';
 import { PictoPng } from '../common/Picto';
 import { ProductSlice } from './Product';
 
-export const ProductGeneral: React.FC<{
+interface ProductGeneralProps {
     product: [] | [ProductSlice, ...ProductSlice[]];
-}> = ({ product }) => {
+}
+
+export const ProductGeneral = ({ product }: ProductGeneralProps) => {
     return (
         <div className="product__general" data-panel="produit">
             <div className="product__general__title">

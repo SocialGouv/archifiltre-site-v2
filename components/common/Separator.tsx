@@ -1,1 +1,1 @@
-export const Separator: React.FC = () => <div className="separator"></div>;
+export const Separator = () => <div className="separator"></div>;

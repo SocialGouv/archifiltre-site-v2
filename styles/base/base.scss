@@ -31,7 +31,7 @@ html {
 body {
   background: #fff;
   color: var(--text);
-  font-family: 'Quicksand';
+  font-family: $font-quicksand;
   height: 100vh;
   width: 100vw;
 }
@@ -59,4 +59,8 @@ button {
 
 span {
   display: inline-block;
+}
+
+strong {
+  font-weight: bold;
 }
