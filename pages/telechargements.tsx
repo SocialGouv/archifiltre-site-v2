@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import {
     Download,
     DownloadPrismicDocument,
@@ -16,12 +17,22 @@ const DownloadPage: NextPage<DownloadPageProps> = ({
     productVersions,
 }) => {
     if (!content || !productVersions) return null;
-    return <Download content={content} productVersions={productVersions} />;
+    return (
+        <>
+            <NextSeo
+                title="Téléchargements"
+                description="Télécharger la dernière version de Mails et Docs par Archifiltre !"
+            />
+            <Download content={content} productVersions={productVersions} />;
+        </>
+    );
 };
 
-export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {
+export const getStaticProps: GetStaticProps<DownloadPageProps> = async ({
+    previewData,
+}) => {
     const [content, productVersions] = await Promise.all([
-        Client().getSingle<DownloadPrismicDocument>(DOWNLOAD),
+        Client({ previewData }).getSingle<DownloadPrismicDocument>(DOWNLOAD),
         getVersionsFromGH(),
     ]);
 

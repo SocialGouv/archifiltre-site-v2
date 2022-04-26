@@ -44,10 +44,7 @@ export type ProductPrismicDocument = SlicedAndCustomPrismicDocument<
     ProductCustomFields
 >;
 
-export const Product: React.FC<ProductProps> = ({
-    content,
-    productVersions,
-}) => {
+export const Product = ({ content, productVersions }: ProductProps) => {
     const { pathname } = useRouter();
 
     const { title, slices: product } = content.data;

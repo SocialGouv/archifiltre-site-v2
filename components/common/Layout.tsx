@@ -1,3 +1,5 @@
-export const Layout: React.FC = ({ children }) => {
+import { WithChildrenProps } from '../../utils/types';
+
+export const Layout = ({ children }: WithChildrenProps) => {
     return <>{children}</>;
 };

@@ -1,19 +1,20 @@
+import { WithChildrenProps } from '../../utils/types';
 import { ButtonLink } from '../common/Button';
 
-interface HomeProductProps {
+interface HomeProductProps extends WithChildrenProps {
     index: number;
     linkToProduct: string;
     subtitle: string;
     title: string;
 }
 
-export const HomeProduct: React.FC<HomeProductProps> = ({
+export const HomeProduct = ({
     title,
     subtitle,
     linkToProduct,
     children,
     index,
-}) => (
+}: HomeProductProps) => (
     <div className="home__product" data-index={index}>
         <h1>{title}</h1>
         <h2>{subtitle}</h2>

@@ -35,10 +35,7 @@ export type DownloadProps = WithPrismicSlicedContent<DownloadSlice> & {
 
 export type DownloadPrismicDocument = SlicedPrismicDocument<DownloadSlice>;
 
-export const Download: React.FC<DownloadProps> = ({
-    content,
-    productVersions,
-}) => {
+export const Download = ({ content, productVersions }: DownloadProps) => {
     const { slices } = content.data;
 
     return (

@@ -9,8 +9,12 @@ const HomePage: NextPage<HomePageProps> = ({ content }) => {
     return <Home content={content} />;
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-    const content = await Client().getSingle<HomePrismicDocument>(HOMEPAGE);
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({
+    previewData,
+}) => {
+    const content = await Client({
+        previewData,
+    }).getSingle<HomePrismicDocument>(HOMEPAGE);
 
     return {
         props: {

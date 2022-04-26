@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ButtonLink } from './Button';
 import { Logo } from './Logo';
 
-export const Header: React.FC = () => (
+export const Header = () => (
     <header id="header">
         <Logo />
         <nav>

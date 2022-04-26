@@ -35,7 +35,7 @@ export type HomeSlice = SharedSlice<
 export type HomeProps = WithPrismicSlicedContent<HomeSlice>;
 export type HomePrismicDocument = SlicedPrismicDocument<HomeSlice>;
 
-export const Home: React.FC<HomeProps> = ({ content }) => {
+export const Home = ({ content }: HomeProps) => {
     const slices = content.data.slices;
     const timeline = useRef(gsap.timeline());
     const productContent = useRef<Element[]>([]);

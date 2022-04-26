@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import {
     Product,
     ProductPrismicDocument,
@@ -12,12 +13,22 @@ export type DocsPageProps = Partial<ProductProps>;
 
 const ProductPage: NextPage<DocsPageProps> = ({ content, productVersions }) => {
     if (!content || !productVersions) return null;
-    return <Product content={content} productVersions={productVersions} />;
+    return (
+        <>
+            <NextSeo
+                title="Produit - Docs"
+                description="Visualisez, appréhendez et améliorez vos arborescences de fichiers et de messageries !"
+            />
+            <Product content={content} productVersions={productVersions} />;
+        </>
+    );
 };
 
-export const getStaticProps: GetStaticProps<DocsPageProps> = async () => {
+export const getStaticProps: GetStaticProps<DocsPageProps> = async ({
+    previewData,
+}) => {
     const [content, productVersions] = await Promise.all([
-        Client().getSingle<ProductPrismicDocument>(DOCS),
+        Client({ previewData }).getSingle<ProductPrismicDocument>(DOCS),
         getVersionsFromGH(),
     ]);
 

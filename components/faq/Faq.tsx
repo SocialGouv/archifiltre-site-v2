@@ -40,7 +40,7 @@ export type FaqPrismicDocument = SlicedAndCustomPrismicDocument<
     FaqCustomFields
 >;
 
-export const Faq: React.FC<FaqProps> = ({ content }) => {
+export const Faq = ({ content }: FaqProps) => {
     const [activeIndex, setActiveIndex] = useState(-1);
     const { title, subtitle, slices } = content.data;
 
@@ -54,7 +54,11 @@ export const Faq: React.FC<FaqProps> = ({ content }) => {
                     <div
                         className="faq__qa__item"
                         key={index}
-                        onClick={() => setActiveIndex(index)}
+                        onClick={() =>
+                            setActiveIndex(
+                                isIndexActive(activeIndex, index) ? -1 : index,
+                            )
+                        }
                     >
                         <div className="faq__qa__item__question">
                             {item.question}

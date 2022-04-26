@@ -8,41 +8,47 @@ interface DownloadProdutItemProps {
     product?: ArchifiltreProductVersionInfo[number];
     slice: DownloadSlice;
 }
-export const DownloadProductItem: React.FC<DownloadProdutItemProps> = ({
+export const DownloadProductItem = ({
     slice,
     product,
-}) => (
-    <div className="download__products__item">
-        <h3>
-            {slice.primary.title}
-            <span>
-                {product ? product.name : 'Pas de version stable disponible 😢'}
-            </span>
-        </h3>
-        <PrismicRichText field={slice.primary.changelog} />
+}: DownloadProdutItemProps) => {
+    const dlHref = getDownloadLink(product);
+    return (
+        <div className="download__products__item">
+            <h3>
+                {slice.primary.title}
+                <span>
+                    {product
+                        ? product.name
+                        : 'Pas de version stable disponible 😢'}
+                </span>
+            </h3>
+            <PrismicRichText field={slice.primary.changelog} />
 
-        <div className="download__products__item__doc">
-            <button
-                className="btn-link"
-                onClick={() => window.open(getDownloadLink(product))}
-            >
-                Télécharger {slice.primary.title}
-            </button>
-            <Link href={slice.primary.documentation.url}>
-                <a className="btn-link documentation" target="_blank">
-                    Documentation
-                </a>
-            </Link>
+            <div className="download__products__item__doc">
+                {dlHref && (
+                    <Link href={dlHref}>
+                        <a className="btn-link download" target="_blank">
+                            Télécharger {slice.primary.title}
+                        </a>
+                    </Link>
+                )}
+                <Link href={slice.primary.documentation.url}>
+                    <a className="btn-link documentation" target="_blank">
+                        Documentation
+                    </a>
+                </Link>
+            </div>
+            {product && (
+                <Link href={product.html_url}>
+                    <a
+                        className="underline download__products__item__other"
+                        target="_blank"
+                    >
+                        Besoin d&apos;une autre version ?
+                    </a>
+                </Link>
+            )}
         </div>
-        {product && (
-            <Link href={product.html_url}>
-                <a
-                    className="underline download__products__item__other"
-                    target="_blank"
-                >
-                    Besoin d&apos;une autre version ?
-                </a>
-            </Link>
-        )}
-    </div>
-);
+    );
+};

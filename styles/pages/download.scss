@@ -13,6 +13,7 @@
   h1 {
     @extend %description-75-m;
 
+    font-family: $font-inter;
     margin: 0 0 5rem;
   }
 
@@ -28,7 +29,10 @@
     justify-content: space-between;
 
     &__item {
+      width: calc(50% - 2.5rem);
+
       h3 {
+        font-family: $font-inter;
         font-size: 4rem;
         font-weight: 600;
         margin: 0 0 4rem;
@@ -58,7 +62,9 @@
       }
 
       &__doc {
-        button,
+        margin: 0 auto;
+        width: fit-content;
+
         a {
           background: #026fecee;
           border: 0;
@@ -70,11 +76,11 @@
           padding: 1.5rem 2.5rem;
         }
 
-        button {
+        .download {
           margin-right: 2rem;
         }
 
-        a {
+        a:not(.download) {
           background: #000;
         }
       }
