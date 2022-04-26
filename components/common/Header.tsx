@@ -28,7 +28,6 @@ export const Header = () => (
 
         <div className="header__button">
             <ButtonLink label="co-creation" url="/co-creation" />
-            {/* <ButtonLink label="co-creation" url="/co-creation" /> */}
         </div>
     </header>
 );

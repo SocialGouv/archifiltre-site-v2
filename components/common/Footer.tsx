@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ARCHIFILTRE_MAIL_ADDRESS } from '../../utils/constant';
 
 export const Footer = () => (
     <footer className="footer">
@@ -36,7 +37,7 @@ export const Footer = () => (
                     </Link>
                 </li>
                 <li>
-                    <Link href="mailto:contact@archifiltre.fr">
+                    <Link href={`mailto:${ARCHIFILTRE_MAIL_ADDRESS}`}>
                         <a className="underline" target="_blank">
                             Nous contacter
                         </a>

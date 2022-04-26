@@ -16,4 +16,4 @@ export const EXE_EXTENSION = '.exe';
 export const DMG_EXTENSION = '.dmg';
 export const APP_IMAGE_EXTENSION = '.AppImage';
 
-export const ARCHIFILTRE_MAIL_ADDRESS = 'archifiltre@sg.social.gouv.fr';
+export const ARCHIFILTRE_MAIL_ADDRESS = 'contact@archifiltre.fr';

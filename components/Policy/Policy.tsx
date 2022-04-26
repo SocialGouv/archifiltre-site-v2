@@ -146,9 +146,9 @@ export const Policy = () => (
                 recherche&nbsp;:
             </p>
             <p>
-                Par voie électronique à l’adresse suivante :{' '}
+                Par voie électronique à l’adresse suivante :&nbsp;
                 <a href={`mailto:${ARCHIFILTRE_MAIL_ADDRESS}`}>
-                    archifiltre@sg.social.gouv.fr
+                    {ARCHIFILTRE_MAIL_ADDRESS}
                 </a>
             </p>
             <p>
