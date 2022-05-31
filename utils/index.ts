@@ -34,6 +34,7 @@ export const isIndexActive = (
 ): boolean => activeIndex === itemIndex;
 
 const ERROR_MSG = 'Impossible de récupérer les dernières version de';
+
 export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
     Promise.allSettled([
         fetch(
