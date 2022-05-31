@@ -17,6 +17,7 @@ const DownloadPage: NextPage<DownloadPageProps> = ({
     productVersions,
 }) => {
     if (!content || !productVersions) return null;
+
     return (
         <>
             <NextSeo

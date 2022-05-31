@@ -21,7 +21,7 @@ export const Header = () => (
             <Link href="/telechargements">
                 <a className="underline">téléchargements</a>
             </Link>
-            <Link href="/statistiques">
+            <Link href="/stats">
                 <a className="underline">statistiques</a>
             </Link>
         </nav>
