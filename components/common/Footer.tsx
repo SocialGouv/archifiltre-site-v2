@@ -53,7 +53,7 @@ export const Footer = () => (
         </div>
         <div
             className="footer__vercel"
-            // TODO: position bottom.
+            // TODO: position bottom
         >
             <Link
                 href="https://vercel.com/?utm_source=archifiltre&utm_campaign=oss"
