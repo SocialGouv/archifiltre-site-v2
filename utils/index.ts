@@ -8,6 +8,7 @@ export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
 
 /**
  *
+ *
     Short of querySelector method.
  */
 export const qs = (className: string) => document.querySelector(className);
