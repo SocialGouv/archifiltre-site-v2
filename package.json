@@ -35,7 +35,7 @@
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.6.3",
-    "vercel": "^24.1.0"
+    "vercel": "^25.0.0"
   },
   "dependencies": {
     "@prismicio/client": "^6.4.3",
