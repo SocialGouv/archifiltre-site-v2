@@ -85,6 +85,8 @@ export const getDownloadLink = (
             ? 'docs'
             : 'mails';
 
+        // TODO: clean download util
+
         const baseUrl = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}`;
 
         if (name === 'mails') {
