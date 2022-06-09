@@ -13,16 +13,16 @@ export const Header = () => (
                 <a className="underline">Mails</a>
             </Link>
             <Link href="/qui-sommes-nous">
-                <a className="underline">qui sommes-nous ?</a>
+                <a className="underline">Qui sommes-nous ?</a>
             </Link>
             <Link href="/faq">
-                <a className="underline">faq</a>
+                <a className="underline">FAQ</a>
             </Link>
             <Link href="/telechargements">
-                <a className="underline">téléchargements</a>
+                <a className="underline">Téléchargements</a>
             </Link>
-            <Link href="/statistiques">
-                <a className="underline">statistiques</a>
+            <Link href="/stats">
+                <a className="underline">Statistiques</a>
             </Link>
         </nav>
 

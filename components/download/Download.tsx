@@ -60,7 +60,9 @@ export const Download = ({ content, productVersions }: DownloadProps) => {
                                 slice={slice}
                                 key={index}
                                 product={
-                                    productOrError.filter(p => !p.prerelease)[0]
+                                    // TODO : Fix for communication purposes. Need to rollback.
+                                    productOrError[0]
+                                    // productOrError.filter(p => !p.prerelease)[0]
                                 }
                             />
                         );

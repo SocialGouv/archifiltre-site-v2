@@ -1,6 +1,13 @@
 import { Endpoints } from '@octokit/types';
 import { UAParser } from 'ua-parser-js';
-import { APP_IMAGE_EXTENSION, DMG_EXTENSION, EXE_EXTENSION } from './constant';
+import {
+    DMG_EXTENSION_MAILS_FIX,
+    APP_IMAGE_EXTENSION_MAILS_FIX,
+    EXE_EXTENSION_MAILS_FIX,
+    APP_IMAGE_EXTENSION_DOCS_FIX,
+    DMG_EXTENSION_DOCS_FIX,
+    EXE_EXTENSION_DOCS_FIX,
+} from './constant';
 
 export const HAS_WINDOW = typeof window !== 'undefined';
 
@@ -34,6 +41,7 @@ export const isIndexActive = (
 ): boolean => activeIndex === itemIndex;
 
 const ERROR_MSG = 'Impossible de récupérer les dernières version de';
+
 export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
     Promise.allSettled([
         fetch(
@@ -75,10 +83,31 @@ export const getDownloadLink = (
         const name = product.url.includes('archifiltre-docs')
             ? 'docs'
             : 'mails';
-        const url = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}-${version}`;
 
-        if (os === 'Mac OS') return url + DMG_EXTENSION;
-        if (os === 'Linux') return url + APP_IMAGE_EXTENSION;
-        if (os?.startsWith('Windows')) return url + EXE_EXTENSION;
+        console.log(version);
+
+        const baseUrlMail = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}`;
+        const baseUrlDocs =
+            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0-beta.3/archifiltre-docs';
+
+        if (name === 'mails') {
+            if (os === 'Mac OS') return baseUrlMail + DMG_EXTENSION_MAILS_FIX;
+            if (os === 'Linux')
+                return baseUrlMail + APP_IMAGE_EXTENSION_MAILS_FIX;
+            if (os?.startsWith('Windows'))
+                return baseUrlMail + EXE_EXTENSION_MAILS_FIX;
+        } else {
+            if (os === 'Mac OS') return baseUrlDocs + DMG_EXTENSION_DOCS_FIX;
+            if (os === 'Linux')
+                return baseUrlDocs + APP_IMAGE_EXTENSION_DOCS_FIX;
+            if (os?.startsWith('Windows'))
+                return baseUrlDocs + EXE_EXTENSION_DOCS_FIX;
+        }
+
+        // const url = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}-${version}`;
+
+        // if (os === 'Mac OS') return url + DMG_EXTENSION;
+        // if (os === 'Linux') return url + APP_IMAGE_EXTENSION;
+        // if (os?.startsWith('Windows')) return url + EXE_EXTENSION;
     }
 };
