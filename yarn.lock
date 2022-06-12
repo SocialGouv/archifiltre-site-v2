@@ -1201,20 +1201,10 @@
     "@prismicio/helpers" "^2.3.0"
     "@prismicio/types" "^0.1.27"
 
-"@prismicio/helpers@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.2.1.tgz#de45c74d259ce6adf54fca3bd413631418b1435d"
-  integrity sha512-WFfS5CpPJ1PTNU/cqx3XnO8mnbfI8bEgAnWqD57IS5Pqy8YcK8oW5VSR7nw2wPowJjWTuf8j59YtE5uiHi6aCQ==
-  dependencies:
-    "@prismicio/richtext" "^2.0.1"
-    "@prismicio/types" "^0.1.27"
-    escape-html "^1.0.3"
-    imgix-url-builder "^0.0.3"
-
-"@prismicio/helpers@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.3.0.tgz#316cdfdf668efd379a8c2ccfc169e320da30a346"
-  integrity sha512-/3YJ3F7bN56Pn9y2B4a3t0y4QD0zVPqaHf0Rzd5jCA7Bf0wi3oQ35KHGmP3DrYzz16aQNOZgQy/IO/80QsOYTg==
+"@prismicio/helpers@^2.2.1", "@prismicio/helpers@^2.3.0", "@prismicio/helpers@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.3.1.tgz#e6d36a95ca9b0c1340322e6ae1830fc072f02742"
+  integrity sha512-J37WpIUINZ0wT3a2h4fc9ATZqjmQjziPwjETG7QLYEVULpQXsWbgM+C6aoOqdlRwCbZ3Wfhel26+++ZaqOX/0Q==
   dependencies:
     "@prismicio/richtext" "^2.0.1"
     "@prismicio/types" "^0.1.27"
@@ -1234,11 +1224,11 @@
     eslint-plugin-react-hooks "^4.5.0"
 
 "@prismicio/react@^2.4.0", "@prismicio/react@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.4.1.tgz#ca13c097c3f688babf6b44c7eb42b939e97dc01b"
-  integrity sha512-t0uYiyGxo8basQjcsMvgGpyZICw/XgiUIXyx5dERHN52TbGo5zOpZht8ThBuO0nppQMgFzsrvBczJJquJL6yOw==
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.4.2.tgz#581a16f1b682e530fe99a7caad3f47353bd527b8"
+  integrity sha512-KyCZBdJosE93S7sl+Z//eDdbT7vYNGNZ60rOs1VETbDXJtJhh7ymSZul5cvb8MrSrH8yn9DiR4rGVVXLobnHSA==
   dependencies:
-    "@prismicio/helpers" "^2.3.0"
+    "@prismicio/helpers" "^2.3.1"
     "@prismicio/richtext" "^2.0.1"
 
 "@prismicio/richtext@^2.0.1":
