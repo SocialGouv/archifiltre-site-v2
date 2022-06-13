@@ -20,6 +20,8 @@ jobs:
           environment: prod
           imagePackage: app
           token: ${{ secrets.GITHUB_TOKEN }}
+          dockerbuildargs: |
+            PRODUCTION=true
 
   deploy:
     name: Deploy application
