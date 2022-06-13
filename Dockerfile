@@ -22,6 +22,8 @@ WORKDIR /app
 ENV NODE_ENV production
 ARG PRODUCTION
 
+COPY package.json yarn.lock ./
+
 RUN yarn install --production --frozen-lockfile && \
     yarn cache clean
 
