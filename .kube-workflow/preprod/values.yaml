@@ -1,0 +1,5 @@
+app:
+  host: staging.archifiltre.fr
+  redirectFrom:
+    - "{{ .Values.global.host }}"
+  certSecretName: archifiltre-site-v2-crt
