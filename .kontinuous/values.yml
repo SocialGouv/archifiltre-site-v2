@@ -1,5 +1,18 @@
 app:
+  needs: [build-app]
   probesPath: /
   envFrom:
     - secretRef:
         name: app
+
+jobs:
+  runs:
+    build-app:
+      use: SocialGouv/kontinuous/plugins/fabrique/jobs/build@v1
+      with:
+        imageProject: fabrique
+        imageRepository: archifiltre
+        imagePackage: app
+        registrySecretRefName: harbor
+        # buildArgs:
+        #   NEXT_PUBLIC_APP_VERSION_COMMIT: "{{ $.Values.global.sha }}"
