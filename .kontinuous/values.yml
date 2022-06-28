@@ -1,5 +1,7 @@
 app:
   needs: [build-app]
+  imageProject: archifiltre
+  imageRepository: archifiltre-site-v2
   probesPath: /
   envFrom:
     - secretRef:
@@ -10,8 +12,8 @@ jobs:
     build-app:
       use: SocialGouv/kontinuous/plugins/fabrique/jobs/build@v1
       with:
-        imageProject: fabrique
-        imageRepository: archifiltre
+        imageProject: archifiltre
+        imageRepository: archifiltre-site-v2
         imagePackage: app
         registrySecretRefName: harbor
         # buildArgs:
