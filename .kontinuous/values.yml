@@ -1,5 +1,4 @@
 app:
-  enabled: true
   probesPath: /
   envFrom:
     - secretRef:
