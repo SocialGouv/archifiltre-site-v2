@@ -16,5 +16,3 @@ jobs:
         imageRepository: archifiltre-site-v2
         imagePackage: app
         registrySecretRefName: harbor
-        # buildArgs:
-        #   NEXT_PUBLIC_APP_VERSION_COMMIT: "{{ $.Values.global.sha }}"
