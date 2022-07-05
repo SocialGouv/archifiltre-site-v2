@@ -1,0 +1,13 @@
+name: Deactivate
+on:
+  pull_request:
+    types: [closed]
+
+concurrency:
+  cancel-in-progress: true
+  group: deactivate-${{ github.ref }}
+
+jobs:
+  follow-deactivation:
+    uses: SocialGouv/kontinuous/.github/workflows/workflow-logs.yaml@v1
+    secrets: inherit
