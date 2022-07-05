@@ -4,5 +4,4 @@ dependencies:
 
 environmentPatterns:
   prod: main
-  preprod:
-    - dev
+  preprod: dev

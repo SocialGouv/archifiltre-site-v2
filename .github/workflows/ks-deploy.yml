@@ -1,15 +1,9 @@
-name: Review
-on:
-  push:
-    branches-ignore:
-      - dev
-      - main
-    tags-ignore:
-      - v*
+name: Deploy
+on: push
 
 concurrency:
   cancel-in-progress: true
-  group: review-${{ github.ref }}
+  group: deploy-${{ github.ref }}
 
 jobs:
   follow-deployment:
