@@ -1,0 +1,4 @@
+app:
+  host: staging.archifiltre.fr
+  redirectFrom:
+    - "{{ .Values.global.host }}"
