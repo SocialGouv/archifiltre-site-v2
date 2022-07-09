@@ -1,13 +1,13 @@
-name: Deactivate
+name: Kontinuous
 on:
-  pull_request:
-    types: [closed]
+  push:
+  delete:
 
 concurrency:
   cancel-in-progress: true
-  group: deactivate-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  follow-deactivation:
+  follow-deployment:
     uses: SocialGouv/kontinuous/.github/workflows/workflow-logs.yaml@v1
     secrets: inherit
