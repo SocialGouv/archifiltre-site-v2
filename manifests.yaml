@@ -1,0 +1,75 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-archifiltre-site-v2-fix-ci-workfow-up-2-4ntu89-deac-5gw9bo
+  namespace: archifiltre-ci
+  annotations:
+    kapp.k14s.io/nonce: ''
+    kapp.k14s.io/update-strategy: fallback-on-replace
+    kapp.k14s.io/change-group: kontinuous/archifiltre-site-v2-fix-ci-workfow-up-2-1o8bsm
+    kapp.k14s.io/change-group.deactivate: kontinuous/deactivate.archifiltre-site-v2-fix-ci-workfow-up-2-1o8bsm
+    kapp.k14s.io/change-group.deactivate.delete-namespace: >-
+      kontinuous/deactivate.delete-namespace.archifiltre-site-v2-fix-ci-workfow-up-2-1o8bsm
+    kapp.k14s.io/change-group.deactivate..delete-namespace: >-
+      kontinuous/deactivate..delete-namespace.archifiltre-site-v2-fix-ci-workfow-up-2-1o8bsm
+    janitor/ttl: '1800'
+    kapp.k14s.io/disable-original: ''
+    kapp.k14s.io/create-strategy: fallback-on-update
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: 3600
+  ttlSecondsAfterFinished: 1800
+  template:
+    metadata: {}
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: degit-action
+          image: harbor.fabrique.social.gouv.fr/sre/kontinuous/degit:v1
+          command:
+            - sh
+            - '-c'
+            - >-
+              degit SocialGouv/kontinuous/plugins/fabrique/jobs/deactivate
+              /action
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1001
+          volumeMounts:
+            - name: action
+              mountPath: /action
+      containers:
+        - name: job
+          image: bitnami/kubectl:latest
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: kubeconfig
+          env:
+            - name: NAMESPACE
+              value: archifiltre-site-v2-fix-ci-workfow-up-2-1o8bsm
+          command:
+            - /bin/bash
+            - '-c'
+            - |
+              set -e
+              mkdir -p /tmp/.kube
+              echo "$KUBECONFIG" > /tmp/.kube/config
+              export KUBECONFIG=/tmp/.kube/config
+
+              kubectl delete namespace "$NAMESPACE"
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+            fsGroup: 1001
+          volumeMounts:
+            - name: workspace
+              mountPath: /workspace
+            - name: action
+              mountPath: /action
+      volumes:
+        - name: workspace
+          emptyDir: {}
+        - name: action
+          emptyDir: {}
