@@ -22,6 +22,7 @@ WORKDIR /app
 ENV NODE_ENV production
 ARG PRODUCTION
 
+COPY --from=deps /app/node_modules ./node_modules
 COPY package.json yarn.lock ./
 
 RUN yarn install --production --frozen-lockfile && \
