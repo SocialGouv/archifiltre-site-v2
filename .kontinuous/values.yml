@@ -1,5 +1,5 @@
 app:
-  needs: [build-app]
+  ~needs: [build-app]
   imageProject: archifiltre
   imageRepository: archifiltre-site-v2
   probesPath: /
