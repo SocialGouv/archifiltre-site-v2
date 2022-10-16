@@ -13,7 +13,7 @@
     "slicemachine": "start-slicemachine"
   },
   "devDependencies": {
-    "@octokit/types": "^6.34.0",
+    "@octokit/types": "^8.0.0",
     "@prismicio/types": "^0.1.28",
     "@tsconfig/next": "^1.0.2",
     "@types/node": "14",
