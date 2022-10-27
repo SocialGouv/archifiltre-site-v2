@@ -1,5 +1,5 @@
 app:
-  needs: [build-app]
+  ~needs: [build-app]
   imageProject: archifiltre
   imageRepository: archifiltre-site-v2
   probesPath: /
@@ -10,7 +10,7 @@ app:
 jobs:
   runs:
     build-app:
-      use: SocialGouv/kontinuous/plugins/fabrique/jobs/build@v1
+      use: SocialGouv/kontinuous/plugins/contrib/jobs/build@v1
       with:
         imageProject: archifiltre
         imageRepository: archifiltre-site-v2
