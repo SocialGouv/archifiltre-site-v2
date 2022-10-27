@@ -3,3 +3,10 @@ app:
   redirectFrom:
     - "{{ .Values.global.host }}"
     - "www.archifiltre.fr"
+
+jobs:
+  runs:
+    build-app:
+      with:
+        buildArgs:
+          PRODUCTION: true
