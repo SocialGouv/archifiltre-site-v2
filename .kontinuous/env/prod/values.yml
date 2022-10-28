@@ -2,7 +2,6 @@ app:
   host: archifiltre.fr
   redirectFrom:
     - "{{ .Values.global.host }}"
-    - "www.archifiltre.fr"
 
 jobs:
   runs:
