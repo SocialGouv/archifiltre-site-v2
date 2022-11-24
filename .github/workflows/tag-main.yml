@@ -7,7 +7,7 @@ on:
 jobs:
   tag-main:
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, ':bookmark: release v') }}
+    if: "${{ !contains(github.event.head_commit.message, ':bookmark: release v') }}"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
