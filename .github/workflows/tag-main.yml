@@ -7,6 +7,7 @@ on:
 jobs:
   tag-main:
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, ':bookmark: release v') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,5 +31,5 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
         run: |
-          npm version minor --sign-git-tag --message ":bookmark: v%s"
+          npm version minor --sign-git-tag --message ":bookmark: release v%s"
           git push --follow-tags origin
