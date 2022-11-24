@@ -24,6 +24,5 @@ jobs:
         shell: bash
         run: |
           VERSION=$(npm version minor)
-          git add package.json
-          git commit -S -m ":bookmark: v${VERSION}"
+          git commit -S -am ":bookmark: v${VERSION}"
           git push origin
