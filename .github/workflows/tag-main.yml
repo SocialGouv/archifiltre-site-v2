@@ -23,7 +23,5 @@ jobs:
       - name: Bump version and Git Tag
         shell: bash
         run: |
-          VERSION=$(npm version minor)
-          git add package.json
-          git commit -S -m ":bookmark: v${VERSION}"
-          git push origin
+          npm version minor --sign-git-tag --message ":bookmark: v%s"
+          git push --follow-tags origin
