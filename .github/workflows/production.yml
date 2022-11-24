@@ -1,17 +1,14 @@
-name: Kontinuous
+name: Production
 on:
   push:
-    branches:
-      - "**"
     tags:
         - v*.*.*
-  delete:
 
 concurrency:
   cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.ref }}
 
 jobs:
-  stream-webhook:
+  deploy:
     uses: SocialGouv/kontinuous/.github/workflows/workflow-webhook.yaml@v1
     secrets: inherit

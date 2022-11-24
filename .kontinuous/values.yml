@@ -10,7 +10,7 @@ app:
 jobs:
   runs:
     build-app:
-      use: SocialGouv/kontinuous/plugins/contrib/jobs/build@v1
+      use: build
       with:
         imageProject: archifiltre
         imageRepository: archifiltre-site-v2
