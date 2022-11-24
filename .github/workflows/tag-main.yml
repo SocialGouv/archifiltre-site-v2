@@ -24,6 +24,11 @@ jobs:
 
       - name: Bump version and Git Tag
         shell: bash
+        env:
+          GIT_AUTHOR_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
         run: |
           npm version minor --sign-git-tag --message ":bookmark: v%s"
           git push --follow-tags origin
