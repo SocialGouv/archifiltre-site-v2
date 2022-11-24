@@ -24,4 +24,4 @@ jobs:
         shell: bash
         run: |
           npm version minor --sign-git-tag --message ":bookmark: v%s"
-          git push origin
+          git push --follow-tags origin
