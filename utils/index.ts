@@ -15,6 +15,7 @@ export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
 
 /**
  *
+ *
     Short of querySelector method.
  */
 export const qs = (className: string) => document.querySelector(className);
@@ -83,8 +84,6 @@ export const getDownloadLink = (
         const name = product.url.includes('archifiltre-docs')
             ? 'docs'
             : 'mails';
-
-        console.log(version);
 
         const baseUrlMail = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}`;
         const baseUrlDocs =
