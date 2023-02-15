@@ -6,13 +6,6 @@ app:
   envFrom:
     - secretRef:
         name: app
-  resources:
-    requests:
-      cpu: 10m
-      memory: 256Mi
-    limits:
-      cpu: 41m
-      memory: 512Mi
 
 jobs:
   runs:
