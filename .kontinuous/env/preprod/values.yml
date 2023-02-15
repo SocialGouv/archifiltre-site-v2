@@ -2,3 +2,10 @@ app:
   host: staging.archifiltre.fr
   redirectFrom:
     - "{{ .Values.global.host }}"
+  resources:
+    requests:
+      cpu: 10m
+      memory: 256Mi
+    limits:
+      cpu: 40m
+      memory: 512Mi
