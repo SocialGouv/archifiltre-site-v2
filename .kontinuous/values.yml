@@ -11,7 +11,7 @@ app:
       cpu: 10m
       memory: 256Mi
     limits:
-      cpu: 40m
+      cpu: 41m
       memory: 512Mi
 
 jobs:
