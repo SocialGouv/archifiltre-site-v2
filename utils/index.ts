@@ -77,17 +77,20 @@ export const getOSName = () => new UAParser().getOS().name;
 
 export const getDownloadLink = (
     product?: ArchifiltreProductVersionInfo[number],
+    currentProduct?: 'docs' | 'mails',
 ) => {
-    if (product) {
+    if (product || currentProduct) {
         const os = getOSName();
-        const version = product.name?.substring(1);
-        const name = product.url.includes('archifiltre-docs')
-            ? 'docs'
-            : 'mails';
+        const version = product?.name?.substring(1);
+        const name = product
+            ? product?.url.includes('archifiltre-docs')
+                ? 'docs'
+                : 'mails'
+            : currentProduct;
 
         // const baseUrl = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}`;
 
-        const baseUrlMail = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}`;
+        const baseUrlMail = `https://github.com/SocialGouv/archifiltre-mails/releases/download/v1.0.0/archifiltre-mails`;
         const baseUrlDocs =
             'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0-beta.3/archifiltre-docs';
 
