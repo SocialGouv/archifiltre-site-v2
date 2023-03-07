@@ -6,8 +6,7 @@ export const Statistic = () => (
             width="100%"
             height="100%"
             frameBorder="0"
-            // TODO: env ou prismic
-            src="https://posthog3.lafabriquenumerique.cloud-ed.fr/shared_dashboard/L4M71TMmeZm1ebmfePa5TPj_v92hYA?embedded"
+            src="https://mails.posthog.archifiltre.fr/shared_dashboard/yWQ2FcRFSrL1RmRbMStmwLl6R2KVrA?embedded"
         />
     </Page>
 );

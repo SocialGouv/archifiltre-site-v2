@@ -1,0 +1,18 @@
+app:
+  ~needs: [build-app]
+  imageProject: archifiltre
+  imageRepository: archifiltre-site-v2
+  probesPath: /
+  envFrom:
+    - secretRef:
+        name: app
+
+jobs:
+  runs:
+    build-app:
+      use: build
+      with:
+        imageProject: archifiltre
+        imageRepository: archifiltre-site-v2
+        imagePackage: app
+        registrySecretRefName: harbor
