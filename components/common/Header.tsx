@@ -27,7 +27,11 @@ export const Header = () => (
         </nav>
 
         <div className="header__button">
-            <ButtonLink label="co-creation" url="/co-creation" />
+            <ButtonLink
+                className="co-creation-btn"
+                label="co-creation"
+                url="/co-creation"
+            />
         </div>
     </header>
 );

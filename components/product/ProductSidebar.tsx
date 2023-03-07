@@ -53,6 +53,19 @@ export const ProductSidebar = ({ title }: ProductSidebarProps) => {
                         </div>
                     ),
                 )}
+                {isDocs && (
+                    <div
+                        className="product__sidebar__nav__item"
+                        onClick={() =>
+                            window.open(
+                                'https://github.com/SocialGouv/archifiltre-docs',
+                            )
+                        }
+                    >
+                        Documentation
+                        <small>↗</small>
+                    </div>
+                )}
             </div>
 
             <div className="product__sidebar__change">

@@ -5,7 +5,6 @@ import {
     SharedSliceVariation,
 } from '@prismicio/types';
 import gsap from 'gsap';
-import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayout';
 import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
@@ -39,21 +38,19 @@ export const Home = ({ content }: HomeProps) => {
     const slices = content.data.slices;
     const timeline = useRef(gsap.timeline());
     const productContent = useRef<Element[]>([]);
-    const [index, setIndex] = useState(0);
-    const { pathname } = useRouter();
-    const isDocs = pathname === DOCS_SLUG;
+    const [idx, setIndex] = useState(0);
 
     useIsomorphicLayoutEffect(() => {
         productContent.current = gsap.utils.toArray(
             '.home__product',
         ) as Element[];
-    }, []);
+    }, [idx]);
 
     const switchProduct = () => {
-        const inactive = index === 0 ? 1 : 0;
+        const inactive = idx === 0 ? 1 : 0;
 
         timeline.current
-            .to(productContent.current[index], {
+            .to(productContent.current[idx], {
                 opacity: 0,
             })
             .to(productContent.current[inactive], {
@@ -67,9 +64,11 @@ export const Home = ({ content }: HomeProps) => {
             {slices.map((slice, index) => (
                 <HomeProduct
                     index={index}
+                    isActive={idx === index}
                     title={slice.primary.title ?? ''}
                     subtitle={slice.primary.subtitle ?? ''}
-                    linkToProduct={isDocs ? MAILS_SLUG : DOCS_SLUG}
+                    linkToProduct={index === 0 ? DOCS_SLUG : MAILS_SLUG}
+                    isDocs={index === 0}
                     key={index}
                 >
                     <ul>
@@ -86,7 +85,7 @@ export const Home = ({ content }: HomeProps) => {
             <div className="home__scroll-to-discover" onClick={switchProduct}>
                 <ArrowButtonPicto />
                 Cliquez pour découvrir notre second produit :{' '}
-                <strong>{index === 0 ? 'Mails' : 'Docs'}</strong>
+                <strong>{idx === 0 ? 'Mails' : 'Docs'}</strong>
             </div>
         </Page>
     );

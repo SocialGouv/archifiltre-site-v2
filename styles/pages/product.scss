@@ -29,6 +29,11 @@
         text-transform: capitalize;
         transition: opacity 500ms ease;
 
+        small {
+          font-size: 1.5rem;
+          margin-left: 0.5rem;
+        }
+
         &.active {
           opacity: 1;
         }
