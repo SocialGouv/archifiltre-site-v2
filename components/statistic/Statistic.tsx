@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FC } from 'react';
 import { Page } from '../common/Page';
 
@@ -32,15 +33,20 @@ export const Statistic = () => {
     return (
         <Page className="statistics">
             <h1>Statistiques</h1>
-            <div className="wrapper">
+            <div className="statistics-wrapper">
                 <h2>Docs</h2>
                 <div className="item-wrapper">
                     {statsDocs.map((stat, index) => (
                         <Stat label={stat.label} size={stat.size} key={index} />
                     ))}
                 </div>
+                <h3>Utilisations de Docs dans le monde</h3>
+                <img
+                    src="/assets/map.png"
+                    alt="carte de l'utilisation d'Archifiltre Docs dans le monde"
+                />
             </div>
-            <div className="wrapper">
+            <div className="statistics-wrapper">
                 <h2>Mails</h2>
                 <div className="item-wrapper">
                     {statsMails.map((stat, index) => (

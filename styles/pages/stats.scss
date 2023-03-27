@@ -1,6 +1,10 @@
 .statistics {
   padding: 0 20vw;
 
+  &-wrapper {
+    margin: 0 0 17.5rem;
+  }
+
   h1 {
     @extend %description-75-m;
 
@@ -14,6 +18,19 @@
     font-size: 5rem;
     margin: 0 0 5rem;
     text-align: center;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 0 0 4rem;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 70vw;
   }
 
   .item {
