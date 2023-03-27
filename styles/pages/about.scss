@@ -1,7 +1,7 @@
 .about {
   &#page {
     margin: 0 auto;
-    width: 90rem;
+    width: 120rem;
   }
 
   h1,
@@ -45,7 +45,8 @@
       // }
 
       &__item {
-        width: 20%;
+        margin: 0 20px;
+        width: 15%;
 
         &__avatar {
           margin: 0 0 2.5rem;
