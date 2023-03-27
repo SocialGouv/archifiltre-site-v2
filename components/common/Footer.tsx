@@ -43,6 +43,16 @@ export const Footer = () => (
                         </a>
                     </Link>
                 </li>
+
+                <li>
+                    <Link href={'https://www.twitter.com/'}>Twitter</Link>
+                </li>
+                <li>
+                    <Link href={'https://www.linkedin.com/'}>Linkedin</Link>
+                </li>
+                <li>
+                    <Link href={'https://www.youtube.com/'}>Youtube</Link>
+                </li>
             </ul>
         </div>
         <div className="footer__credits">
