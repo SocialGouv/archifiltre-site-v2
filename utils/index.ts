@@ -92,7 +92,7 @@ export const getDownloadLink = (
 
         const baseUrlMail = `https://github.com/SocialGouv/archifiltre-mails/releases/download/v1.0.0/archifiltre-mails`;
         const baseUrlDocs =
-            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0-beta.3/archifiltre-docs';
+            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0-beta.6/archifiltre-docs';
 
         if (name === 'mails') {
             if (os === 'Mac OS') return baseUrlMail + DMG_EXTENSION_MAILS_FIX;
