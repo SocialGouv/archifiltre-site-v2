@@ -4,7 +4,6 @@ import { ButtonDownloadLink, ButtonLink } from '../common/Button';
 
 interface HomeProductProps extends WithChildrenProps {
     index: number;
-
     isDocs: boolean;
     linkToProduct: string;
     subtitle: string;
