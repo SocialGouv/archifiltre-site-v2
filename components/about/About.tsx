@@ -62,31 +62,33 @@ export const About = ({ content }: AboutProps) => {
                         {slice.primary.title}
                     </h3>
                     <div className="about__section__people">
-                        {slice.items.map((item, index) => (
-                            <div
-                                className="about__section__people__item"
-                                key={index}
-                            >
-                                <div className="about__section__people__item__avatar">
-                                    <NextPrismicImage field={item.image} />
-                                </div>
-                                <div className="about__section__people__item__name">
-                                    {item.name}
-                                </div>
-                                <div className="about__section__people__item__surname">
-                                    {item.surname}
-                                </div>
-                                <div className="about__section__people__item__job">
-                                    {item.job}
-                                </div>
-                                <PrismicLink
-                                    className="about__section__people__item__linkedin underline"
-                                    field={item.linkedin}
+                        {slice.items
+                            .filter(item => item.linkedin.link_type === 'Web')
+                            .map((item, index) => (
+                                <div
+                                    className="about__section__people__item"
+                                    key={index}
                                 >
-                                    Linkedin
-                                </PrismicLink>
-                            </div>
-                        ))}
+                                    <div className="about__section__people__item__avatar">
+                                        <NextPrismicImage field={item.image} />
+                                    </div>
+                                    <div className="about__section__people__item__name">
+                                        {item.name}
+                                    </div>
+                                    <div className="about__section__people__item__surname">
+                                        {item.surname}
+                                    </div>
+                                    <div className="about__section__people__item__job">
+                                        {item.job}
+                                    </div>
+                                    <PrismicLink
+                                        className="about__section__people__item__linkedin underline"
+                                        field={item.linkedin}
+                                    >
+                                        Linkedin
+                                    </PrismicLink>
+                                </div>
+                            ))}
                     </div>
                 </div>
             ))}

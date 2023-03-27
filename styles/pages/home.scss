@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 /* stylelint-disable selector-max-compound-selectors */
 .home {
   align-items: center;
@@ -6,7 +7,7 @@
 
   &#page {
     height: 100vh;
-    padding: 0;
+    padding: 15rem 0 0;
   }
 
   &__scroll-to-discover {
@@ -36,10 +37,12 @@
 
   &__product {
     opacity: 0;
+    pointer-events: none;
     position: absolute;
 
-    &[data-index='0'] {
+    &.active {
       opacity: 1;
+      pointer-events: all;
     }
 
     h1 {
@@ -77,15 +80,42 @@
     }
 
     &__discover {
-      background: #026fecee;
-      border-radius: 7px;
-      color: #fff;
       cursor: pointer;
       margin: 0 auto;
       width: fit-content;
 
-      a {
+      a,
+      button {
+        background: #026fecee;
         border: 0;
+        border-radius: 7px;
+        color: #fff;
+        display: inline-block;
+        opacity: 1;
+        transition: opacity 250ms ease;
+
+        &:hover {
+
+          // background: #fff;
+          opacity: 0.8;
+        }
+
+        &:first-child {
+          margin-right: 30px;
+        }
+      }
+    }
+
+    &__social {
+      margin: 30px auto 0;
+      width: fit-content;
+
+      button {
+        font-size: 1.6rem;
+
+        &:nth-child(2) {
+          margin: 0 20px;
+        }
       }
     }
   }

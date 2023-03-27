@@ -1,0 +1,48 @@
+.co-creation {
+  iframe {
+    display: block;
+    height: 28vh;
+    margin: 0 auto 10rem;
+    min-height: 560px;
+    min-width: 1055px;
+    width: 44vw;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h1 {
+    @extend %description-75-m;
+
+    font-family: $font-inter;
+    margin: 0 0 10rem;
+  }
+
+  .items {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .item {
+    font-size: 1.5rem;
+    line-height: 1.2;
+
+    a {
+      display: inline-block;
+      // margin: 5px;
+      text-align: center;
+      width: 50%;
+    }
+
+    span {
+      display: table;
+      font-weight: 600;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+  }
+}

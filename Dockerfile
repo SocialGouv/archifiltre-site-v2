@@ -22,14 +22,13 @@ WORKDIR /app
 ENV NODE_ENV production
 ARG PRODUCTION
 
-COPY --from=deps /app/node_modules ./node_modules
+RUN addgroup --system --gid 1001 nodejs && \
+  adduser --system --uid 1001 nextjs
+
 COPY package.json yarn.lock ./
 
 RUN yarn install --production --frozen-lockfile && \
-    yarn cache clean
-
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+  yarn cache clean
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 COPY --from=builder /app/next.config.js ./
@@ -38,7 +37,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 
 # Block crawlers for staging deployments
 RUN if [ -z "$PRODUCTION" ]; then mv -f public/robots.staging.txt public/robots.txt; \
-    else rm -f public/robots.staging.txt; fi
+  else rm -f public/robots.staging.txt; fi
 
 USER 1001
 

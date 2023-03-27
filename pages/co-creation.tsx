@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { UnderConstruction } from '../components/common/UnderConstruction';
+import { CoCreation } from '../components/co-creation/CoCreation';
 
 const CoCreationPage: NextPage = () => {
-    return <UnderConstruction />;
+    return <CoCreation />;
 };
 
 export default CoCreationPage;
