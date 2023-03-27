@@ -36,17 +36,17 @@ export const Statistic = () => {
             <div className="wrapper">
                 <h2>Docs</h2>
                 <div className="item-wrapper">
-                    {/* {statsDocs.map((stat, index) => (
+                    {statsDocs.map((stat, index) => (
                         <Stat label={stat.label} size={stat.size} key={index} />
-                    ))} */}
+                    ))}
                 </div>
             </div>
             <div className="wrapper">
                 <h2>Mails</h2>
                 <div className="item-wrapper">
-                    {/* {statsMails.map((stat, index) => (
+                    {statsMails.map((stat, index) => (
                         <Stat label={stat.label} size={stat.size} key={index} />
-                    ))} */}
+                    ))}
                 </div>
             </div>
         </Page>
