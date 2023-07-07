@@ -52,7 +52,7 @@ export const Download = ({ content, productVersions }: DownloadProps) => {
                             productVersions[slice.primary.key];
 
                         if (typeof productOrError === 'string') {
-                            return <span>{productOrError}</span>;
+                            return <span key={index}>{productOrError}</span>;
                         }
 
                         return (
