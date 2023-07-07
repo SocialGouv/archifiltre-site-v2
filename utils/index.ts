@@ -90,7 +90,7 @@ export const getDownloadLink = (
 
         const baseUrlMail = `https://github.com/SocialGouv/archifiltre-mails/releases/download/v1.0.0/archifiltre-mails`;
         const baseUrlDocs =
-            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0-beta.6/archifiltre-docs';
+            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0/archifiltre-docs';
 
         if (name === 'mails') {
             if (os === 'Mac OS') return baseUrlMail + DMG_EXTENSION_MAILS_FIX;
@@ -105,8 +105,6 @@ export const getDownloadLink = (
             if (os?.startsWith('Windows'))
                 return baseUrlDocs + EXE_EXTENSION_DOCS_FIX;
         }
-
-        // const url = `https://github.com/SocialGouv/archifiltre-${name}/releases/download/v${version}/archifiltre-${name}-${version}`;
 
         // if (os === 'Mac OS') return url + DMG_EXTENSION;
         // if (os === 'Linux') return url + APP_IMAGE_EXTENSION;

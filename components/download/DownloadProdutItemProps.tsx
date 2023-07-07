@@ -13,6 +13,8 @@ export const DownloadProductItem = ({
     product,
 }: DownloadProdutItemProps) => {
     const dlHref = getDownloadLink(product);
+    console.log({ dlHref });
+
     return (
         <div className="download__products__item">
             <h3>
