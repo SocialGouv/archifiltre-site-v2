@@ -7,20 +7,20 @@ import {
     SharedSliceVariation,
     FilledLinkToWebField,
     SelectField,
-} from '@prismicio/types';
-import React from 'react';
-import { ArchifiltreVersions } from '../../utils';
+} from "@prismicio/types";
+import React from "react";
+import { ArchifiltreVersions } from "../../utils";
 import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,
-} from '../../utils/prismic/types';
-import { Page } from '../common/Page';
-import { DownloadProductItem } from './DownloadProdutItemProps';
+} from "../../utils/prismic/types";
+import { Page } from "../common/Page";
+import { DownloadProductItem } from "./DownloadProdutItemProps";
 
 type DownloadSlicePrimary = {
     changelog: RichTextField;
     documentation: FilledLinkToWebField;
-    key: SelectField<'docs' | 'mails'>;
+    key: SelectField<"docs" | "mails">;
     title: KeyTextField;
 };
 
@@ -51,8 +51,8 @@ export const Download = ({ content, productVersions }: DownloadProps) => {
                         const productOrError =
                             productVersions[slice.primary.key];
 
-                        if (typeof productOrError === 'string') {
-                            return <span>{productOrError}</span>;
+                        if (typeof productOrError === "string") {
+                            return <span key={index}>{productOrError}</span>;
                         }
 
                         return (
