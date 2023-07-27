@@ -7,5 +7,5 @@ app:
       cpu: 10m
       memory: 256Mi
     limits:
-      cpu: 40m
+      cpu: 100m
       memory: 512Mi
