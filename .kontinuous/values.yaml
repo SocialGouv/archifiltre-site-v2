@@ -1,8 +1,11 @@
 app:
+  ~chart: app
   ~needs: [build-app]
   imageProject: archifiltre
   imageRepository: archifiltre-site-v2
   probesPath: /
+  startupProbe:
+    initialDelaySeconds: 30
   envFrom:
     - secretRef:
         name: app
