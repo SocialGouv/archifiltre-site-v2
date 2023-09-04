@@ -14,7 +14,7 @@ COPY . .
 
 RUN yarn build
 
-RUN yarn workspaces focus --production  && yarn cache clean
+RUN yarn workspaces focus --production && yarn cache clean
 
 FROM node:16-alpine as runner
 WORKDIR /app
