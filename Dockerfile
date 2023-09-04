@@ -26,7 +26,7 @@ RUN addgroup --system --gid 1001 nodejs && \
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/package.json /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 
@@ -39,4 +39,4 @@ USER 1001
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["node_modules/next/dist/bin/next"]
+CMD ["yarn", "start"]
