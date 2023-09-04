@@ -8,13 +8,13 @@ RUN apk add --no-cache libc6-compat
 
 COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
-RUN yarn fetch --immutable && yarn cache clean
+RUN yarn fetch --immutable
 
 COPY . .
 
 RUN yarn build
 
-RUN yarn workspaces focus --production
+RUN yarn workspaces focus --production  && yarn cache clean
 
 FROM node:16-alpine as runner
 WORKDIR /app
@@ -39,4 +39,4 @@ USER 1001
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["node_modules/dist/bin/next"]
+CMD ["node_modules/next/dist/bin/next"]
