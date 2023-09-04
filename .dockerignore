@@ -2,6 +2,11 @@ Dockerfile
 .dockerignore
 node_modules
 npm-debug.log
-README.md
 .next
 .git
+.github
+.kontinuous
+.socialgouv.yaml
+.releaserc.yml
+*.md
+LICENSE
