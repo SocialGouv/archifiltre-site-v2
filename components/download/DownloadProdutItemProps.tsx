@@ -12,8 +12,8 @@ export const DownloadProductItem = ({
     slice,
     product,
 }: DownloadProdutItemProps) => {
-    const dlHref = getDownloadLink(product);
-    console.log({ dlHref });
+    const dlHref = getDownloadLink(product); // TODO: Change to proper url selection
+    const productName = product?.name?.substring(0, product?.name.indexOf('-')); // TODO: Change to proper title selection
 
     return (
         <div className="download__products__item">
@@ -21,7 +21,7 @@ export const DownloadProductItem = ({
                 {slice.primary.title}
                 <span>
                     {product
-                        ? product.name
+                        ? productName
                         : 'Pas de version stable disponible 😢'}
                 </span>
             </h3>
