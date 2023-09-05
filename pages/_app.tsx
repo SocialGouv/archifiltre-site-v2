@@ -1,8 +1,8 @@
 import { PrismicPreview } from '@prismicio/next';
 import { PrismicProvider } from '@prismicio/react';
-import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
+import { DefaultSeo } from 'next-seo';
 import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
 import { Layout } from '../components/common/Layout';
