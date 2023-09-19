@@ -3,21 +3,22 @@ import { FC } from 'react';
 import { Page } from '../common/Page';
 
 const statsDocs = [
-    { label: 'Nombre de téléchargements', size: 20877 },
-    { label: 'Volume total analysé (To)', size: 1293.1 },
-    { label: 'Volume total tagué à éliminer (To)', size: 9.1 },
+    { label: 'Nombre de téléchargements', size: 20877, date: '' },
+    { label: 'Volume total analysé', size: '1293.1 To', date: '' },
+    { label: 'Volume total tagué à éliminer', size: '9.1 To', date: '' },
+    { label: 'Parcourus en avion', size: '8489 Kms', date: '' },
 ];
 
 const statsMails = [
-    { label: 'Nombre de téléchargements', size: 5614 },
-    { label: 'Nombre de pst déposés', size: 513 },
-    { label: 'Volume total analysé (en mails)', size: 1373449 },
-    { label: 'Volume total tagué à éliminer (en Mo)', size: 12.5 },
+    { label: 'Nombre de téléchargements', size: 5614, date: '' },
+    { label: 'Nombre de pst déposés', size: 513, date: '' },
+    { label: 'Volume total analysé (en mails)', size: 1373449, date: '' },
+    { label: 'Volume total tagué à éliminer (en Mo)', size: 12.5, date: '' },
 ];
 
 type TStat = {
     label: string;
-    size: number;
+    size: number | string;
 };
 
 const Stat: FC<TStat> = ({ size, label }) => {
