@@ -17,7 +17,7 @@ export const usePostHog = () => {
     useEffect(() => {
         const handleRouteChange = () => {
             posthog?.capture('$pageview');
-            console.log('capt');
+            console.log('pr');
         };
         router.events.on('routeChangeComplete', handleRouteChange);
 
