@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ARCHIFILTRE_MAIL_ADDRESS } from '../../utils/constant';
 
@@ -59,24 +58,6 @@ export const Footer = () => (
             © {new Date().getFullYear()} Archifiltre
             <Link href="https://www.fabrique.social.gouv.fr/">
                 <a className="underline">Fabrique des ministères sociaux</a>
-            </Link>
-        </div>
-        <div
-            className="footer__vercel"
-            // TODO: position bottom
-        >
-            <Link
-                href="https://vercel.com/?utm_source=archifiltre&utm_campaign=oss"
-                passHref
-            >
-                <a target="_blank">
-                    <Image
-                        src="/assets/vercel-powered.svg"
-                        alt="vercel-logo"
-                        width={212}
-                        height={44}
-                    />
-                </a>
             </Link>
         </div>
     </footer>
