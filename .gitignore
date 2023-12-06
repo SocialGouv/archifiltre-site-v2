@@ -46,3 +46,7 @@ yarn-error.log*
 .now
 .vercel
 .env
+.idea
+
+# because of yarn
+package-lock.json
