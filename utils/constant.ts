@@ -26,4 +26,4 @@ export const APP_IMAGE_EXTENSION_DOCS_FIX = '-linux-x86_64.AppImage';
 export const DMG_EXTENSION_DOCS_FIX_64 = '-mac-x64.dmg';
 export const APP_IMAGE_EXTENSION_DOCS_FIX_64 = '-linux-x86_64.AppImage';
 
-export const ARCHIFILTRE_MAIL_ADDRESS = 'contact@archifiltre.fr';
+export const ARCHIFILTRE_MAIL_ADDRESS = 'archifiltre@sg.social.gouv.fr';

@@ -44,13 +44,19 @@ export const Footer = () => (
                 </li>
 
                 <li>
-                    <Link href={'https://www.twitter.com/'}>Twitter</Link>
+                    <Link href={'https://twitter.com/archifiltre'}>X</Link>
                 </li>
                 <li>
-                    <Link href={'https://www.linkedin.com/'}>Linkedin</Link>
+                    <Link
+                        href={'https://www.linkedin.com/company/archifiltre/'}
+                    >
+                        Linkedin
+                    </Link>
                 </li>
                 <li>
-                    <Link href={'https://www.youtube.com/'}>Youtube</Link>
+                    <Link href={'https://www.youtube.com/@archifiltre'}>
+                        Youtube
+                    </Link>
                 </li>
             </ul>
         </div>
