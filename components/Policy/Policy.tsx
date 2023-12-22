@@ -36,5 +36,13 @@ export const Policy = () => (
             Garanties:
             https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA
         </p>
+
+        <h3>Tally</h3>
+        <p>Destinataire: Belgique</p>
+        <p>Traitement réalisé : Hébergement des données de questionnaires</p>
+        <p>
+            Garanties:
+            https://nextcloud.fabrique.social.gouv.fr/s/bPtSaxaL8cP9ymx
+        </p>
     </div>
 );
