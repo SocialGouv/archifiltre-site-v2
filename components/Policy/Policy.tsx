@@ -42,7 +42,7 @@ export const Policy = () => (
         <p>Traitement réalisé : Hébergement des données de questionnaires</p>
         <p>
             Garanties:
-            à remplacer une fois le DPA reçu
+            https://nextcloud.fabrique.social.gouv.fr/s/bPtSaxaL8cP9ymx
         </p>
     </div>
 );
