@@ -6,6 +6,7 @@ app:
       kubernetes.io/tls-acme: "true"
   redirectFrom:
     - "{{ .Values.global.host }}"
+    - archifiltre.fabrique.social.gouv.fr
   autoscale:
     enabled: true
     minReplicas: 1
