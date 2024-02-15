@@ -1,5 +1,9 @@
 app:
   host: archifiltre.fr
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/tls-acme: "true"
   redirectFrom:
     - "{{ .Values.global.host }}"
   autoscale:
