@@ -8,10 +8,10 @@ app:
     maxReplicas: 3
   resources:
     requests:
-      cpu: 10m
+      cpu: 50m
       memory: 256Mi
     limits:
-      cpu: 40m
+      cpu: 200m
       memory: 512Mi
 
 jobs:
