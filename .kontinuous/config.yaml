@@ -3,6 +3,9 @@ projectName: archifiltre
 dependencies:
   fabrique:
     import: SocialGouv/kontinuous/plugins/fabrique
+    extends:
+    - name: ovh
+
 
 environmentPatterns:
   # prod: main
