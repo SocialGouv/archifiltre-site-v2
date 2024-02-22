@@ -4,7 +4,6 @@ import { ButtonDownloadLink, ButtonLink } from '../common/Button';
 
 interface HomeProductProps extends WithChildrenProps {
     index: number;
-    isDocs: boolean;
     linkToProduct: string;
     subtitle: string;
     title: string;
@@ -16,10 +15,7 @@ export const HomeProduct = ({
     linkToProduct,
     children,
     index,
-    isDocs,
 }: HomeProductProps) => {
-    const download = getDownloadLink(undefined, isDocs ? 'docs' : 'mails');
-
     return (
         <div className="home__product active" data-index={index} key={title}>
             <h1>{title}</h1>
@@ -31,7 +27,9 @@ export const HomeProduct = ({
                     <div className="home__product__discover__btn">
                         <ButtonLink url={linkToProduct} label="découvrir" />
                         <ButtonDownloadLink
-                            onClick={() => window.open(download)}
+                            onClick={() =>
+                                window.open(getDownloadLink(undefined, 'docs'))
+                            }
                             url={linkToProduct}
                             label="télécharger"
                         />
@@ -42,7 +40,9 @@ export const HomeProduct = ({
                     <div className="home__product__discover__btn">
                         <ButtonLink url={'mails'} label="découvrir" />
                         <ButtonDownloadLink
-                            onClick={() => window.open(download)}
+                            onClick={() =>
+                                window.open(getDownloadLink(undefined, 'mails'))
+                            }
                             url={linkToProduct}
                             label="télécharger"
                         />

@@ -41,7 +41,6 @@ export const Home = ({ content }: HomeProps) => {
                     title={slice.primary.title ?? ''}
                     subtitle={slice.primary.subtitle ?? ''}
                     linkToProduct={index === 0 ? DOCS_SLUG : MAILS_SLUG}
-                    isDocs={index === 0}
                     key={index}
                 >
                     <ul>
