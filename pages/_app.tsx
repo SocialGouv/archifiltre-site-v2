@@ -12,8 +12,12 @@ import { PostHogTracker } from '../hooks/usePostHog';
 import { repositoryName } from '../prismicConfiguration';
 import '../styles/index.scss';
 import { linkResolver } from '../utils/prismic/helpers';
+import Script from "next/script";
+import useTrackPage from "../src/hooks/useTrackPage";
 
 const App = ({ Component, pageProps }: AppProps) => {
+    useTrackPage();
+    
     return (
         <PostHogProvider>
             <PostHogTracker />
@@ -104,11 +108,17 @@ const App = ({ Component, pageProps }: AppProps) => {
                                 cardType: 'summary_large_image',
                             }}
                         />
+                        <Script
+                            src="https://api.pirsch.io/pirsch-extended.js"
+                            strategy="afterInteractive"
+                            id="pirschextendedjs"
+                            data-code="uJCmStS991SMh0AyfYDKm8Fxx7gXFu6I"
+                        />
                         <Header />
                         <Main>
                             <Component {...pageProps} />
                         </Main>
-                        <Footer />
+                        <Footer/>
                     </Layout>
                 </PrismicPreview>
             </PrismicProvider>
