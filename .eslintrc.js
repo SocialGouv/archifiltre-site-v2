@@ -3,7 +3,7 @@ const path = require('path');
 const tsconfigPath = path.resolve(__dirname, './tsconfig.json');
 
 /** @type {import("eslint").Linter.Config} */
-const defaultConfig = {
+const config = {
     root: true,
     extends: ['next/core-web-vitals', 'prettier'],
     ignorePatterns: ['node_modules'],
@@ -20,6 +20,7 @@ const defaultConfig = {
     ],
     reportUnusedDisableDirectives: true,
     rules: {
+        quotes: [2, 'single', { avoidEscape: true }],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         'typescript-sort-keys/interface': 'error',
@@ -56,4 +57,4 @@ const defaultConfig = {
     },
 };
 
-module.exports = defaultConfig;
+module.exports = config;

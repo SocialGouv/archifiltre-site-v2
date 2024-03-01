@@ -4,7 +4,7 @@ import { Logo } from './Logo';
 
 export const Header = () => (
     <header id="header">
-        <Logo/>
+        <Logo />
         <nav>
             <Link href="/docs">
                 <a className="underline">Docs</a>

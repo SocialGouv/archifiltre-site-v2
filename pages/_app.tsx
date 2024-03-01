@@ -2,6 +2,7 @@ import { PrismicPreview } from '@prismicio/next';
 import { PrismicProvider } from '@prismicio/react';
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
+import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
 import { PostHogProvider } from 'posthog-js/react';
 import { Footer } from '../components/common/Footer';
@@ -11,13 +12,12 @@ import { Main } from '../components/common/Main';
 import { PostHogTracker } from '../hooks/usePostHog';
 import { repositoryName } from '../prismicConfiguration';
 import '../styles/index.scss';
+import useTrackPage from '../src/hooks/useTrackPage';
 import { linkResolver } from '../utils/prismic/helpers';
-import Script from "next/script";
-import useTrackPage from "../src/hooks/useTrackPage";
 
 const App = ({ Component, pageProps }: AppProps) => {
     useTrackPage();
-    
+
     return (
         <PostHogProvider>
             <PostHogTracker />
@@ -118,7 +118,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                         <Main>
                             <Component {...pageProps} />
                         </Main>
-                        <Footer/>
+                        <Footer />
                     </Layout>
                 </PrismicPreview>
             </PrismicProvider>
