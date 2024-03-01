@@ -4,7 +4,7 @@ import { Logo } from './Logo';
 
 export const Header = () => (
     <header id="header">
-        <Logo />
+        <Logo/>
         <nav>
             <Link href="/docs">
                 <a className="underline">Docs</a>
@@ -23,6 +23,9 @@ export const Header = () => (
             </Link>
             <Link href="/stats">
                 <a className="underline">Statistiques</a>
+            </Link>
+            <Link href="/digital-cleanup-day">
+                <a className="underline">Digital Cleanup Day</a>
             </Link>
         </nav>
 

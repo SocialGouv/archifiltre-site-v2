@@ -44,6 +44,7 @@
     "@prismicio/react": "^2.4.1",
     "@prismicio/slice-simulator-react": "^0.2.2",
     "gsap": "^3.10.4",
+    "iframe-resizer": "^4.3.9",
     "include-media": "^1.4.10",
     "next": "12.1.6",
     "next-seo": "^5.4.0",
