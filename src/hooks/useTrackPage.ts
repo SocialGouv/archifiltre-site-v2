@@ -1,13 +1,19 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import Router from 'next/router';
 import { trackPage } from '../services/pirschClient';
 
 const useTrackPage = () => {
-    const location = useLocation();
-
     useEffect(() => {
-        trackPage().catch(console.error);
-    }, [location.pathname]);
+        const handleRouteChange = () => {
+            trackPage().catch(console.error);
+        };
+
+        Router.events.on('routeChangeComplete', handleRouteChange);
+
+        return () => {
+            Router.events.off('routeChangeComplete', handleRouteChange);
+        };
+    }, []);
 };
 
 export default useTrackPage;
