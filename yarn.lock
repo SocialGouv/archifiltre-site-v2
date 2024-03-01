@@ -1570,6 +1570,11 @@
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.1.tgz#0ea7b61496902b95890dc4c3a116b60cb8dae812"
   integrity sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==
 
+"@types/iframe-resizer@^3.5.13":
+  version "3.5.13"
+  resolved "https://registry.yarnpkg.com/@types/iframe-resizer/-/iframe-resizer-3.5.13.tgz#b9bf74679d519a1a6afd3f1536b48d04e13a0aa7"
+  integrity sha512-/Np2ntlOWd/NOHs23Mj7QlNEnZ6SL02AWWdYZLm4RQNukDdpqpagfMAdin5FvQDLngR8LWfh/qUnYxuDmR8BCg==
+
 "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.9":
   version "7.0.12"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.12.tgz#d70faba7039d5fca54c83c7dbab41051d2b6f6cb"
