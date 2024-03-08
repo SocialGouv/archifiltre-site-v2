@@ -4,7 +4,6 @@ import {
     SharedSlice,
     SharedSliceVariation,
 } from '@prismicio/types';
-import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 import {
     SlicedPrismicDocument,
     WithPrismicSlicedContent,

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { getDownloadLink } from '../../utils';
+import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 import { WithChildrenProps } from '../../utils/types';
-
 interface HomeProductProps extends WithChildrenProps {
     subtitle: string;
     title: string;
@@ -25,7 +25,7 @@ export const HomeProduct = ({
                 <div className="home__product__discover">
                     <h3>Docs</h3>
                     <div className="home__product__discover__btn">
-                        <Link href={'/docs'}>
+                        <Link href={DOCS_SLUG}>
                             <a
                                 className="btn-link documentation"
                                 target="_blank"
@@ -48,7 +48,7 @@ export const HomeProduct = ({
                 <div className="home__product__discover">
                     <h3>Mails</h3>
                     <div className="home__product__discover__btn">
-                        <Link href={'/mails'}>
+                        <Link href={MAILS_SLUG}>
                             <a
                                 className="btn-link documentation"
                                 target="_blank"
