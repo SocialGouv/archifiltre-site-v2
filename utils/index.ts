@@ -8,22 +8,9 @@ import {
     DMG_EXTENSION_DOCS_FIX,
     EXE_EXTENSION_DOCS_FIX,
 } from './constant';
+import { BASE_URL_MAILS, BASE_URLS_DOCS } from './downloadLink';
 
 export const HAS_WINDOW = typeof window !== 'undefined';
-
-export const events = ['scroll', 'wheel', 'touchmove', 'pointermove'];
-
-/**
- *
- *
-    Short of querySelector method.
- */
-export const qs = (className: string) => document.querySelector(className);
-/**
- *
-    Short of querySelectorAll method.
- */
-export const qsa = (className: string) => document.querySelectorAll(className);
 
 // TODO: n products
 export type ArchifiltreProductVersionInfo =
@@ -46,7 +33,7 @@ const ERROR_MSG = 'Impossible de récupérer les dernières version de';
 export const getVersionsFromGH = async (): Promise<ArchifiltreVersions> =>
     Promise.allSettled([
         fetch(
-            `https://api.github.com/repos/SocialGouv/archifiltre-docs/releases`,
+            'https://api.github.com/repos/SocialGouv/archifiltre-docs/releases',
         ),
         fetch(
             'https://api.github.com/repos/SocialGouv/archifiltre-mails/releases',
@@ -81,33 +68,32 @@ export const getDownloadLink = (
 ) => {
     if (product || currentProduct) {
         const os = getOSName();
-        const version = product?.name?.substring(1);
         const name = product
             ? product?.url.includes('archifiltre-docs')
                 ? 'docs'
                 : 'mails'
             : currentProduct;
 
-        const baseUrlMail = `https://github.com/SocialGouv/archifiltre-mails/releases/download/v1.0.0/archifiltre-mails`;
-        const baseUrlDocs =
-            'https://github.com/SocialGouv/archifiltre-docs/releases/download/v4.0.0/archifiltre-docs';
-
         if (name === 'mails') {
-            if (os === 'Mac OS') return baseUrlMail + DMG_EXTENSION_MAILS_FIX;
-            if (os === 'Linux')
-                return baseUrlMail + APP_IMAGE_EXTENSION_MAILS_FIX;
-            if (os?.startsWith('Windows'))
-                return baseUrlMail + EXE_EXTENSION_MAILS_FIX;
-        } else {
-            if (os === 'Mac OS') return baseUrlDocs + DMG_EXTENSION_DOCS_FIX;
-            if (os === 'Linux')
-                return baseUrlDocs + APP_IMAGE_EXTENSION_DOCS_FIX;
-            if (os?.startsWith('Windows'))
-                return baseUrlDocs + EXE_EXTENSION_DOCS_FIX;
+            if (os === 'Mac OS') {
+                return BASE_URL_MAILS + DMG_EXTENSION_MAILS_FIX;
+            }
+            if (os === 'Linux') {
+                return BASE_URL_MAILS + APP_IMAGE_EXTENSION_MAILS_FIX;
+            }
+            if (os?.startsWith('Windows')) {
+                return BASE_URL_MAILS + EXE_EXTENSION_MAILS_FIX;
+            }
         }
 
-        // if (os === 'Mac OS') return url + DMG_EXTENSION;
-        // if (os === 'Linux') return url + APP_IMAGE_EXTENSION;
-        // if (os?.startsWith('Windows')) return url + EXE_EXTENSION;
+        if (os === 'Mac OS') {
+            return BASE_URLS_DOCS + DMG_EXTENSION_DOCS_FIX;
+        }
+        if (os === 'Linux') {
+            return BASE_URLS_DOCS + APP_IMAGE_EXTENSION_DOCS_FIX;
+        }
+        if (os?.startsWith('Windows')) {
+            return BASE_URLS_DOCS + EXE_EXTENSION_DOCS_FIX;
+        }
     }
 };

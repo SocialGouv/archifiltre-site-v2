@@ -35,13 +35,11 @@ export const Home = ({ content }: HomeProps) => {
     const slices = content.data.slices;
     return (
         <Page className="home">
-            {slices.slice(0, 1).map((slice, index) => (
+            {slices.slice(0, 1).map((slice, key) => (
                 <HomeProduct
-                    index={index}
                     title={slice.primary.title ?? ''}
                     subtitle={slice.primary.subtitle ?? ''}
-                    linkToProduct={index === 0 ? DOCS_SLUG : MAILS_SLUG}
-                    key={index}
+                    key={key}
                 >
                     <ul>
                         {slice.items.map((item, index) => (

@@ -4,16 +4,13 @@ import React from 'react';
 import { ArchifiltreProductVersionInfo, getDownloadLink } from '../../utils';
 import { DownloadSlice } from './Download';
 
-interface DownloadProdutItemProps {
+interface DownloadProductItemProps {
     product?: ArchifiltreProductVersionInfo[number];
     slice: DownloadSlice;
 }
-export const DownloadProductItem = ({
-    slice,
-    product,
-}: DownloadProdutItemProps) => {
-    const dlHref = getDownloadLink(product); // TODO: Change to proper url selection
-    const productName = product?.name?.substring(0, product?.name.indexOf('-')); // TODO: Change to proper title selection
+const DownloadProductItem = ({ slice, product }: DownloadProductItemProps) => {
+    const downloadLink = getDownloadLink(product);
+    const productName = product?.name?.substring(0, product?.name.indexOf('-'));
 
     return (
         <div className="download__products__item">
@@ -28,8 +25,8 @@ export const DownloadProductItem = ({
             <PrismicRichText field={slice.primary.changelog} />
 
             <div className="download__products__item__doc">
-                {dlHref && (
-                    <Link href={dlHref}>
+                {downloadLink && (
+                    <Link href={downloadLink}>
                         <a className="btn-link download" target="_blank">
                             Télécharger {slice.primary.title}
                         </a>
@@ -54,3 +51,5 @@ export const DownloadProductItem = ({
         </div>
     );
 };
+
+export default DownloadProductItem;

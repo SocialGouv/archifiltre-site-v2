@@ -1,10 +1,9 @@
+import Link from 'next/link';
+import React from 'react';
 import { getDownloadLink } from '../../utils';
 import { WithChildrenProps } from '../../utils/types';
-import { ButtonDownloadLink, ButtonLink } from '../common/Button';
 
 interface HomeProductProps extends WithChildrenProps {
-    index: number;
-    linkToProduct: string;
     subtitle: string;
     title: string;
 }
@@ -12,12 +11,13 @@ interface HomeProductProps extends WithChildrenProps {
 export const HomeProduct = ({
     title,
     subtitle,
-    linkToProduct,
     children,
-    index,
 }: HomeProductProps) => {
+    const docsDownloadLink = getDownloadLink(undefined, 'docs');
+    const mailsDownloadLink = getDownloadLink(undefined, 'mails');
+
     return (
-        <div className="home__product active" data-index={index} key={title}>
+        <div className="home__product active" key={title}>
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
             {children}
@@ -25,27 +25,47 @@ export const HomeProduct = ({
                 <div className="home__product__discover">
                     <h3>Docs</h3>
                     <div className="home__product__discover__btn">
-                        <ButtonLink url={linkToProduct} label="découvrir" />
-                        <ButtonDownloadLink
-                            onClick={() =>
-                                window.open(getDownloadLink(undefined, 'docs'))
-                            }
-                            url={linkToProduct}
-                            label="télécharger"
-                        />
+                        <Link href={'/docs'}>
+                            <a
+                                className="btn-link documentation"
+                                target="_blank"
+                            >
+                                découvrir
+                            </a>
+                        </Link>
+                        {docsDownloadLink && (
+                            <Link href={docsDownloadLink}>
+                                <a
+                                    className="btn-link download"
+                                    target="_blank"
+                                >
+                                    Télécharger
+                                </a>
+                            </Link>
+                        )}
                     </div>
                 </div>
                 <div className="home__product__discover">
                     <h3>Mails</h3>
                     <div className="home__product__discover__btn">
-                        <ButtonLink url={'mails'} label="découvrir" />
-                        <ButtonDownloadLink
-                            onClick={() =>
-                                window.open(getDownloadLink(undefined, 'mails'))
-                            }
-                            url={linkToProduct}
-                            label="télécharger"
-                        />
+                        <Link href={'/mails'}>
+                            <a
+                                className="btn-link documentation"
+                                target="_blank"
+                            >
+                                découvrir
+                            </a>
+                        </Link>
+                        {mailsDownloadLink && (
+                            <Link href={mailsDownloadLink}>
+                                <a
+                                    className="btn-link download"
+                                    target="_blank"
+                                >
+                                    Télécharger
+                                </a>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>

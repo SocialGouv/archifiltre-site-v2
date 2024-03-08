@@ -15,7 +15,7 @@ import {
     WithPrismicSlicedContent,
 } from '../../utils/prismic/types';
 import { Page } from '../common/Page';
-import { DownloadProductItem } from './DownloadProdutItemProps';
+import DownloadProductItem from './DownloadProductItem';
 
 type DownloadSlicePrimary = {
     changelog: RichTextField;
