@@ -9,21 +9,21 @@ import ProductDefinition from './ProductDefinition';
 import ProductVersions from './ProductVersions';
 
 export {
-	AboutPeople,
-	DownloadInfos,
-	FaqQa,
-	HomeArticleVideo,
-	HomeProduct,
-	ProductDefinition,
-	ProductVersions,
+    AboutPeople,
+    DownloadInfos,
+    FaqQa,
+    HomeArticleVideo,
+    HomeProduct,
+    ProductDefinition,
+    ProductVersions,
 };
 
 export const components = {
-	about_people: AboutPeople,
-	download_infos: DownloadInfos,
-	faq_qa: FaqQa,
-	home_article_video: HomeArticleVideo,
-	home_product: HomeProduct,
-	product_definition: ProductDefinition,
-	product_versions: ProductVersions,
+    about_people: AboutPeople,
+    download_infos: DownloadInfos,
+    faq_qa: FaqQa,
+    home_article_video: HomeArticleVideo,
+    home_product: HomeProduct,
+    product_definition: ProductDefinition,
+    product_versions: ProductVersions,
 };

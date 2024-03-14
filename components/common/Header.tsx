@@ -6,20 +6,33 @@ export const Header = () => (
     <header id="header">
         <Logo />
         <nav>
-            <Link href="/docs" className="underline">Docs</Link>
+            <Link href="/docs" className="underline">
+                Docs
+            </Link>
 
-            <Link href="/mails" className="underline">Mails</Link>
+            <Link href="/mails" className="underline">
+                Mails
+            </Link>
 
-            <Link href="/qui-sommes-nous" className="underline">Qui sommes-nous ?</Link>
+            <Link href="/qui-sommes-nous" className="underline">
+                Qui sommes-nous ?
+            </Link>
 
-            <Link href="/faq" className="underline">FAQ</Link>
+            <Link href="/faq" className="underline">
+                FAQ
+            </Link>
 
-            <Link href="/telechargements" className="underline">Téléchargements</Link>
+            <Link href="/telechargements" className="underline">
+                Téléchargements
+            </Link>
 
-            <Link href="/stats" className="underline">Statistiques</Link>
+            <Link href="/stats" className="underline">
+                Statistiques
+            </Link>
 
-            <Link href="/digital-cleanup-day" className="underline">Digital Cleanup Day</Link>
-
+            <Link href="/digital-cleanup-day" className="underline">
+                Digital Cleanup Day
+            </Link>
         </nav>
 
         <div className="header__button">

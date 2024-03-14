@@ -3,10 +3,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.validate": [
-    "css",
-    "scss"
-  ],
+  "stylelint.validate": ["css", "scss"],
   "[css]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
@@ -29,9 +26,7 @@
   "cssModules.camelCase": true,
   "json.schemas": [
     {
-      "fileMatch": [
-        "renovate.json"
-      ],
+      "fileMatch": ["renovate.json"],
       "url": "https://docs.renovatebot.com/renovate-schema.json"
     }
   ],

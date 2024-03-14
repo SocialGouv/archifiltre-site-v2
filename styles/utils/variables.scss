@@ -2,6 +2,6 @@ $ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
 $border: solid 0.1px var(--text);
 
-$z-indexes: ('preloader', 'transition', 'navigation', 'content', 'canvas');
+$z-indexes: ("preloader", "transition", "navigation", "content", "canvas");
 
 $vh-100: calc(100vh - 44px - 129px - 102px);

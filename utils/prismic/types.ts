@@ -6,15 +6,9 @@ import {
 } from '@prismicio/types';
 
 export type PrismicSimpleContent = Record<string, AnyRegularField>;
-export type PrismicDefaultPrimary = PrismicSimpleContent;
 
 export interface WithPrismicSlicedContent<TSlice extends SharedSlice> {
     content: SlicedPrismicDocument<TSlice>;
-}
-export interface WithPrismicSimpleContent<
-    TFields extends PrismicSimpleContent,
-> {
-    content: CustomPrismicDocument<TFields>;
 }
 
 export interface WithPrismicSlicedAndCustomContent<
@@ -34,10 +28,3 @@ export type SlicedAndCustomPrismicDocument<
     TSlice extends SharedSlice,
     TFields extends PrismicSimpleContent,
 > = SlicedPrismicDocument<TSlice> & CustomPrismicDocument<TFields>;
-
-export interface PrismicRouter {
-    routes: {
-        path: string;
-        type: string;
-    }[];
-}

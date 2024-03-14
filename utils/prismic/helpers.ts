@@ -1,8 +1,7 @@
 import * as prismic from '@prismicio/client';
 import { LinkResolverFunction } from '@prismicio/helpers';
 import { enableAutoPreviews, CreateClientConfig } from '@prismicio/next';
-import { apiEndpoint, Router } from '../../prismicConfiguration';
-import { PrismicRouter } from './types';
+import { apiEndpoint } from '../../prismicConfiguration';
 
 export const Client = (
     config = {} as CreateClientConfig & prismic.ClientConfig,
@@ -18,20 +17,6 @@ export const Client = (
     });
 
     return client;
-};
-
-const createClientOptions = (
-    prismicAccessToken: string,
-    routes: PrismicRouter,
-): prismic.ClientConfig => {
-    const accessTokenOption = prismicAccessToken
-        ? { accessToken: prismicAccessToken }
-        : {};
-    const routesOption = routes ? { routes: Router.routes } : {};
-    return {
-        ...accessTokenOption,
-        ...routesOption,
-    };
 };
 
 export const linkResolver: LinkResolverFunction<string | null> = doc => {

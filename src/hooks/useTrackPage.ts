@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import Router from 'next/router';
+import { useEffect } from 'react';
 import { trackPage } from '../services/pirschClient';
 
 const useTrackPage = () => {

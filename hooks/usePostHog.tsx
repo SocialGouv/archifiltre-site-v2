@@ -23,7 +23,7 @@ export const usePostHog = () => {
         return () => {
             router.events.off('routeChangeComplete', handleRouteChange);
         };
-    }, []);
+    }, [router?.events]);
 };
 
 export const PostHogTracker = () => {

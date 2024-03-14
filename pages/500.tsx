@@ -13,16 +13,19 @@ const Custom500 = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/docs" className="underline">Docs</Link>
-
+                    <Link href="/docs" className="underline">
+                        Docs
+                    </Link>
                 </li>
                 <li>
-                    <Link href="/mails" className="underline">Mails</Link>
-
+                    <Link href="/mails" className="underline">
+                        Mails
+                    </Link>
                 </li>
                 <li>
-                    <Link href="/qui-sommes-nous" className="underline">Qui sommes nous ?</Link>
-
+                    <Link href="/qui-sommes-nous" className="underline">
+                        Qui sommes nous ?
+                    </Link>
                 </li>
             </ul>
         </div>

@@ -2,7 +2,7 @@ name: Bump version and git tag main branch
 on:
   push:
     branches:
-    - main
+      - main
 
 jobs:
   tag-main:

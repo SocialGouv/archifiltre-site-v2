@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { DOCS_SLUG, MAILS_SLUG } from "../../utils/constant";
+import Link from 'next/link';
+import { DOCS_SLUG, MAILS_SLUG } from '../../utils/constant';
 
 export const UnderConstruction = () => {
     return (
