@@ -8,24 +8,21 @@ const Custom500 = () => {
             <p>Hmm... Il n&apos;y a personne ici. Quelques idées :</p>
             <ul>
                 <li>
-                    <Link href="/">
-                        <a className="underline">Home</a>
+                    <Link href="/" className="underline">
+                        Home
                     </Link>
                 </li>
                 <li>
-                    <Link href="/docs">
-                        <a className="underline">Docs</a>
-                    </Link>
+                    <Link href="/docs" className="underline">Docs</Link>
+
                 </li>
                 <li>
-                    <Link href="/mails">
-                        <a className="underline">Mails</a>
-                    </Link>
+                    <Link href="/mails" className="underline">Mails</Link>
+
                 </li>
                 <li>
-                    <Link href="/qui-sommes-nous">
-                        <a className="underline">Qui sommes nous ?</a>
-                    </Link>
+                    <Link href="/qui-sommes-nous" className="underline">Qui sommes nous ?</Link>
+
                 </li>
             </ul>
         </div>

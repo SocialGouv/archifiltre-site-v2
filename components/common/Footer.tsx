@@ -6,40 +6,44 @@ export const Footer = () => (
         <div className="footer__links">
             <ul>
                 <li>
-                    <Link href="/mentions-legales">
-                        <a className="underline">Mentions Légales</a>
+                    <Link href="/mentions-legales" className="underline">
+                        Mentions Légales
                     </Link>
                 </li>
                 <li>
-                    <Link href="/politiques-de-confidentialite">
-                        <a className="underline">
-                            Politiques de confidentialité
-                        </a>
+                    <Link
+                        href="/politiques-de-confidentialite"
+                        className="underline"
+                    >
+                        Politiques de confidentialité
                     </Link>
                 </li>
                 <li>
-                    <Link href="https://github.com/SocialGouv/archifiltre-docs/wiki/Wiki-Archifiltre">
-                        <a
-                            className="underline"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Github
-                        </a>
+                    <Link
+                        href="https://github.com/SocialGouv/archifiltre-docs/wiki/Wiki-Archifiltre"
+                        className="underline"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Github
                     </Link>
                 </li>
                 <li>
-                    <Link href="https://form.typeform.com/to/lTwzr0dP">
-                        <a className="underline" target="_blank">
-                            Donnez votre avis
-                        </a>
+                    <Link
+                        href="https://form.typeform.com/to/lTwzr0dP"
+                        className="underline"
+                        target="_blank"
+                    >
+                        Donnez votre avis
                     </Link>
                 </li>
                 <li>
-                    <Link href={`mailto:${ARCHIFILTRE_MAIL_ADDRESS}`}>
-                        <a className="underline" target="_blank">
-                            Nous contacter
-                        </a>
+                    <Link
+                        href={`mailto:${ARCHIFILTRE_MAIL_ADDRESS}`}
+                        className="underline"
+                        target="_blank"
+                    >
+                        Nous contacter
                     </Link>
                 </li>
 
@@ -62,8 +66,11 @@ export const Footer = () => (
         </div>
         <div className="footer__credits">
             © {new Date().getFullYear()} Archifiltre
-            <Link href="https://www.fabrique.social.gouv.fr/">
-                <a className="underline">Fabrique des ministères sociaux</a>
+            <Link
+                href="https://www.fabrique.social.gouv.fr/"
+                className="underline"
+            >
+                Fabrique des ministères sociaux
             </Link>
         </div>
     </footer>

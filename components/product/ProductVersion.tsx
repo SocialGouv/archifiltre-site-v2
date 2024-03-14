@@ -30,13 +30,12 @@ export const ProductVersion = ({ versions }: ProductVersionProps) => (
                                   <ReactMarkdown>{version.body}</ReactMarkdown>
                               )}
                           </div>
-                          <Link href={version.html_url}>
-                              <a
-                                  target="_blank"
-                                  className="product__versions__item__download underline"
-                              >
-                                  Télécharger la version
-                              </a>
+                          <Link
+                              href={version.html_url}
+                              target="_blank"
+                              className="product__versions__item__download underline"
+                          >
+                              Télécharger la version
                           </Link>
                       </div>
                   ))}

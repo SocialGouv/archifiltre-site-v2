@@ -13,15 +13,13 @@ export const Logo = () => {
     return (
         <div id="logo">
             <Link href="/">
-                <a>
-                    <Image
-                        priority
-                        src={'/assets/team_logo.png'}
-                        alt="Team logo"
-                        width={imgSize}
-                        height={imgSize}
-                    />
-                </a>
+                <Image
+                    priority
+                    src={'/assets/team_logo.png'}
+                    alt="Team logo"
+                    width={imgSize}
+                    height={imgSize}
+                />
             </Link>
         </div>
     );

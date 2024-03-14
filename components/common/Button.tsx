@@ -13,10 +13,11 @@ interface ButtonCircleProps extends WithChildrenProps {
 
 export const ButtonLink = ({ label, url, className }: ButtonLinkProps) => {
     return (
-        <Link href={url}>
-            <a className={className ? `btn-link ${className}` : 'btn-link'}>
-                {label}
-            </a>
+        <Link
+            href={url}
+            className={className ? `btn-link ${className}` : 'btn-link'}
+        >
+            {label}
         </Link>
     );
 };

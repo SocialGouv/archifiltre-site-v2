@@ -25,22 +25,20 @@ export const HomeProduct = ({
                 <div className="home__product__discover">
                     <h3>Docs</h3>
                     <div className="home__product__discover__btn">
-                        <Link href={DOCS_SLUG}>
-                            <a
-                                className="btn-link documentation"
-                                target="_blank"
-                            >
-                                découvrir
-                            </a>
+                        <Link
+                            href={DOCS_SLUG}
+                            className="btn-link documentation"
+                            target="_blank"
+                        >
+                            découvrir
                         </Link>
                         {docsDownloadLink && (
-                            <Link href={docsDownloadLink}>
-                                <a
-                                    className="btn-link download"
-                                    target="_blank"
-                                >
-                                    Télécharger
-                                </a>
+                            <Link
+                                href={docsDownloadLink}
+                                className="btn-link download"
+                                target="_blank"
+                            >
+                                Télécharger
                             </Link>
                         )}
                     </div>
@@ -48,22 +46,20 @@ export const HomeProduct = ({
                 <div className="home__product__discover">
                     <h3>Mails</h3>
                     <div className="home__product__discover__btn">
-                        <Link href={MAILS_SLUG}>
-                            <a
-                                className="btn-link documentation"
-                                target="_blank"
-                            >
-                                découvrir
-                            </a>
+                        <Link
+                            href={MAILS_SLUG}
+                            className="btn-link documentation"
+                            target="_blank"
+                        >
+                            découvrir
                         </Link>
                         {mailsDownloadLink && (
-                            <Link href={mailsDownloadLink}>
-                                <a
-                                    className="btn-link download"
-                                    target="_blank"
-                                >
-                                    Télécharger
-                                </a>
+                            <Link
+                                href={mailsDownloadLink}
+                                className="btn-link download"
+                                target="_blank"
+                            >
+                                Télécharger
                             </Link>
                         )}
                     </div>

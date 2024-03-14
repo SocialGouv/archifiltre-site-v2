@@ -26,26 +26,29 @@ const DownloadProductItem = ({ slice, product }: DownloadProductItemProps) => {
 
             <div className="download__products__item__doc">
                 {downloadLink && (
-                    <Link href={downloadLink}>
-                        <a className="btn-link download" target="_blank">
-                            Télécharger {slice.primary.title}
-                        </a>
+                    <Link
+                        href={downloadLink}
+                        className="btn-link download"
+                        target="_blank"
+                    >
+                        Télécharger {slice.primary.title}
                     </Link>
                 )}
-                <Link href={slice.primary.documentation.url}>
-                    <a className="btn-link documentation" target="_blank">
-                        Documentation
-                    </a>
+                <Link
+                    href={slice.primary.documentation.url}
+                    className="btn-link documentation"
+                    target="_blank"
+                >
+                    Documentation
                 </Link>
             </div>
             {product && (
-                <Link href={product.html_url}>
-                    <a
-                        className="underline download__products__item__other"
-                        target="_blank"
-                    >
-                        Besoin d&apos;une autre version ?
-                    </a>
+                <Link
+                    href={product.html_url}
+                    className="underline download__products__item__other"
+                    target="_blank"
+                >
+                    Besoin d&apos;une autre version ?
                 </Link>
             )}
         </div>

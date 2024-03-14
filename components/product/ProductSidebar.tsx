@@ -70,9 +70,7 @@ export const ProductSidebar = ({ title }: ProductSidebarProps) => {
 
             <div className="product__sidebar__change">
                 <Link href={isDocs ? MAILS_SLUG : DOCS_SLUG}>
-                    <a>
-                        Voir le produit <strong>{isDocs ? MAILS : DOCS}</strong>
-                    </a>
+                    Voir le produit <strong>{isDocs ? MAILS : DOCS}</strong>
                 </Link>
             </div>
         </div>
