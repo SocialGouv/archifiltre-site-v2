@@ -1,5 +1,5 @@
 # Install dependencies only when needed
-FROM node:16-alpine AS deps
+FROM node:18-alpine AS deps
 WORKDIR /app
 ARG PRODUCTION
 
@@ -8,7 +8,7 @@ RUN apk add --no-cache libc6-compat
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-FROM node:16-alpine as builder
+FROM node:18-alpine as builder
 WORKDIR /app
 ARG PRODUCTION
 
@@ -17,7 +17,7 @@ COPY . .
 
 RUN yarn build
 
-FROM node:16-alpine as runner
+FROM node:18-alpine as runner
 WORKDIR /app
 ENV NODE_ENV production
 ARG PRODUCTION
