@@ -1,0 +1,14 @@
+.announcement-banner {
+  background-color: rgb(59, 117, 176);
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  padding: 2rem;
+  width: 100%;
+  z-index: 2;
+
+  .announcement-link {
+    color: rgb(243,193,90);
+    text-decoration: underline;
+  }
+}

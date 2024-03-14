@@ -6,14 +6,10 @@
   flex-direction: column;
   justify-content: center;
 
-  &#page {
-    padding: 15rem 0 0;
-  }
-
   &__product {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    min-height: $vh-100;
     justify-content: center;
 
     h1 {

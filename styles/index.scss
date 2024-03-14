@@ -1,5 +1,5 @@
-@import './base/reset';
 @import './utils/variables';
+@import './base/reset';
 @import './utils/fonts';
 @import './utils/functions';
 @import './utils/responsive';
@@ -20,5 +20,5 @@
 @import './components/logo';
 @import './components/header';
 @import './components/button';
-@import './components/page';
 @import './components/footer';
+@import "../components/AnnouncementBanner/AnnouncementBanner.scss";

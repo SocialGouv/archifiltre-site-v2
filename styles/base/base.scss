@@ -6,7 +6,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none;
 }
 
 html {
@@ -32,7 +31,7 @@ body {
   background: #fff;
   color: var(--text);
   font-family: $font-quicksand;
-  height: 100vh;
+  min-height: $vh-100;
   width: 100vw;
 }
 
