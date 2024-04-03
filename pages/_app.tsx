@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
 import { PostHogProvider } from 'posthog-js/react';
-import AnnouncementBanner from '../components/AnnouncementBanner/AnnouncementBanner';
+// import AnnouncementBanner from '../components/AnnouncementBanner/AnnouncementBanner';
 import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
 import { Layout } from '../components/common/Layout';
@@ -115,7 +115,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                             id="pirschextendedjs"
                             data-code="uJCmStS991SMh0AyfYDKm8Fxx7gXFu6I"
                         />
-                        <AnnouncementBanner />
+                        {/*<AnnouncementBanner />*/}
                         <Header />
                         <Main>
                             <Component {...pageProps} />
