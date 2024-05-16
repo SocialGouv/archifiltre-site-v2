@@ -22,7 +22,7 @@ const DownloadPage: NextPage<DownloadPageProps> = ({
         <>
             <NextSeo
                 title="Téléchargements"
-                description="Télécharger la dernière version de Docs et Mails par Archifiltre !"
+                description="Téléchargez la dernière version de Docs et Mails par Archifiltre !"
             />
             <Download content={content} productVersions={productVersions} />;
         </>
