@@ -9,7 +9,7 @@ const AnnouncementBanner = () => {
         <div className="announcement-banner">
             Nouvelle version disponible :{' '}
             <strong>
-                Archifiltre Docs v4.1.0 &quot;Unicorn Utopia&quot; 🦄
+                Archifiltre Docs v4.1.1 &quot;Unicorn Utopia&quot; 🦄
             </strong>{' '}
             {docsDownloadLink && (
                 <Link href={docsDownloadLink} className={'announcement-link'}>
