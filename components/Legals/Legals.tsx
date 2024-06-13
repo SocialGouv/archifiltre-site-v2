@@ -52,7 +52,7 @@ export const Legals = () => (
 
         <h2>En savoir plus</h2>
         <p>
-            Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a href="url">https://accessibilite.numerique.gouv.fr/</a>.
+            Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a href="https://accessibilite.numerique.gouv.fr/">https://accessibilite.numerique.gouv.fr/</a>.
         </p>
 
         <h2>Sécurité</h2>
