@@ -2,17 +2,13 @@ app:
   host: archifiltre.fr
   redirectFrom:
     - "{{ .Values.global.host }}"
-  autoscale:
-    enabled: true
-    minReplicas: 1
-    maxReplicas: 3
   resources:
     requests:
-      cpu: 10m
-      memory: 256Mi
-    limits:
       cpu: 100m
-      memory: 512Mi
+      memory: 768Mi
+    limits:
+      cpu: 200m
+      memory: 1Gi
 
 jobs:
   runs:
