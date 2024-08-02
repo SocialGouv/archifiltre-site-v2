@@ -7,15 +7,10 @@ const AnnouncementBanner = () => {
 
     return (
         <div className="announcement-banner">
-            Nouvelle version disponible :{' '}
             <strong>
-                Archifiltre Docs v4.1.2 &quot;Unicorn Utopia&quot; 🦄
-            </strong>{' '}
-            {docsDownloadLink && (
-                <Link href={docsDownloadLink} className={'announcement-link'}>
-                    Découvrez-la ici
-                </Link>
-            )}
+            Attention :{' '}
+            </strong>
+            Notre nouveau site va bientôt faire peau neuve. Nouvelle identité et nouvelle URL
         </div>
     );
 };
